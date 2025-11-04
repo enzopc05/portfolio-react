@@ -1,0 +1,63 @@
+/* Variables pour le thème SOLEIL (mode jour) */
+[data-theme="light"] {
+  --bg-color: #fff8e7;
+  --bg-secondary: #faf7f2;
+  --text-color: #333;
+  --text-secondary: #555;
+  --primary-color: #daab3a; /* Jaune doré soleil */
+  --secondary-color: #b67332; /* Marron clair */
+  --accent-color: #f4a460;
+  --border-color: #ddd;
+  --shadow: rgba(182, 115, 50, 0.2);
+  --card-bg: #ffffff;
+  --header-bg: rgba(218, 171, 58, 0.95);
+
+  /* Icône thème */
+  --theme-icon: "☀️";
+}
+
+/* Variables pour le thème LUNE (mode nuit) */
+[data-theme="dark"] {
+  --bg-color: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-color: #eee;
+  --text-secondary: #ccc;
+  --primary-color: #4a5568; /* Gris bleuté nuit */
+  --secondary-color: #6c7a89;
+  --accent-color: #a8b2c1;
+  --border-color: #2d3748;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --card-bg: #0f3460;
+  --header-bg: rgba(26, 26, 46, 0.95);
+
+  /* Icône thème */
+  --theme-icon: "🌙";
+}
+
+/* Styles globaux */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* Transition fluide pour tous les éléments */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Container général */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
