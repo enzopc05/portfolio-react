@@ -3,14 +3,13 @@ import { useTheme } from '../../context/ThemeContext';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import ThemeToggle from './ThemeToggle';
 import { personalInfo } from '../../data/portfolioData';
-import './Header.css';
+import '../../styles/components/Header.css';
 
 const Header = () => {
   const { theme } = useTheme();
   const scrolled = useScrollPosition();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Navigation générée automatiquement
   const navItems = [
     { id: 'accueil', label: 'Accueil', href: '#accueil' },
     { id: 'about', label: 'À propos', href: '#about' },
@@ -44,7 +43,6 @@ const Header = () => {
           </span>
         </div>
 
-        {/* Menu burger pour mobile */}
         <button 
           className={`header__burger ${menuOpen ? 'header__burger--open' : ''}`}
           onClick={toggleMenu}
@@ -55,7 +53,6 @@ const Header = () => {
           <span></span>
         </button>
 
-        {/* Navigation */}
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__nav-list">
             {navItems.map((item) => (
@@ -72,7 +69,6 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Bouton de thème */}
         <div className="header__theme">
           <ThemeToggle />
         </div>

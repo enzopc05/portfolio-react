@@ -7,7 +7,7 @@ export const personalInfo = {
   startYear: 2025, // Année de début de votre Bachelor
   formation: "Bachelor Développement Informatique",
   school: "IUT de Votre Ville",
-  email: "votre.email@exemple.com",
+  email: "enzo",
   phone: "+33 6 16 25 49 14",
   location: "Saint Ouen l'Aumône, France",
   github: "https://github.com/enzopc05",
