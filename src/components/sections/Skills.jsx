@@ -11,6 +11,9 @@ const Skills = () => {
   const [elementRef, isVisible] = useIntersectionObserver();
   const [activeCategory, setActiveCategory] = useState('webDev');
 
+  // 🔍 DEBUG: Vérifier si isVisible change
+console.log('🎯 isVisible:', isVisible);
+
   const categories = {
     webDev: { label: 'Développement Web', icon: '🌐' },
     programmation: { label: 'Programmation', icon: '💻' },
@@ -90,22 +93,22 @@ const Skills = () => {
             </div>
           </div>
 
-          <div className="skills__grid">
-            {currentSkills.items.map((skill, index) => (
-              <div 
-                key={skill.name} 
-                className="skills__item"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <SkillBar
-                  name={skill.name}
-                  level={skill.level}
-                  color={skill.color}
-                  isVisible={isVisible}
-                />
-              </div>
-            ))}
-          </div>
+<div className="skills__grid">
+  {currentSkills.items.map((skill, index) => (
+    <div 
+      key={skill.name} 
+      className={`skills__item ${isVisible ? 'skills__item--visible' : ''}`}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <SkillBar
+        name={skill.name}
+        level={skill.level}
+        color={skill.color}
+        isVisible={isVisible}
+      />
+    </div>
+  ))}
+</div>
 
           {/* Légende des niveaux */}
           <div className="skills__legend">

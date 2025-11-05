@@ -393,7 +393,7 @@ export const timeline = [
     id: 3,
     year: "2023 - 2025",
     period: "BTS SIO SLAM",
-    icon: "📚",
+    icon: "🎓",
     description:
       "Formation en Services Informatiques aux Organisations - Spécialité Solutions Logicielles et Applications Métiers",
     achievements: [
@@ -420,6 +420,24 @@ export const timeline = [
       "Collaboration avec les équipes métier",
     ],
     color: "#daab3a",
+    isCurrent: true,
+  },
+  {
+    id: 5,
+    year: "2025 - Aujourd'hui",
+    period: "Bachelor Développement Informatique",
+    icon: "📚",
+    description:
+      "Formation en Bachelor Développement Informatique à Sup de Vinci – Campus Paris La Défense (alternance).",
+    achievements: [
+      "Développement Full-Stack : front, back, API ; HTML/CSS/JS (niveau avancé).", // ref
+      "Frameworks & environnements : React / Angular / Node.js ; PHP (Symfony/Laravel).", // ref
+      "Mobile : Kotlin (Android) et Swift (iOS).", // ref
+      "Bases de données : exploitation et connexion performante.", // ref
+      "Versioning & collaboration : GitHub / GitLab, projets en équipe.", // ref
+      "Méthodes agiles (Scrum), gestion de projet et pitch des livrables.", // ref
+    ],
+    color: "#805c0aff",
     isCurrent: true,
   },
 ];

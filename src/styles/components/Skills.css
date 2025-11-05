@@ -179,19 +179,14 @@
 }
 
 .skills__item {
-  animation: slideIn 0.5s ease forwards;
   opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.skills__item--visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 
 /* Légende */

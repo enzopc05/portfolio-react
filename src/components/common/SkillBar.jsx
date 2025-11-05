@@ -6,7 +6,6 @@ const SkillBar = ({ name, level, color, isVisible }) => {
 
   useEffect(() => {
     if (isVisible) {
-      // Animation progressive
       const timer = setTimeout(() => {
         setWidth(level);
       }, 100);

@@ -1,33 +1,27 @@
-/* ==========================================
-   COMPOSANT SKILLBAR - STYLES COMPLETS
-   ========================================== */
-
 .skill-bar {
   width: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-/* En-tête de la barre */
 .skill-bar__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .skill-bar__name {
-  font-size: 1rem;
   font-weight: 600;
+  font-size: 1rem;
   color: var(--text-color, #1a1a1a);
 }
 
 .skill-bar__level {
-  font-size: 0.9rem;
   font-weight: 700;
+  font-size: 0.9rem;
   color: var(--primary-color, #daab3a);
 }
 
-/* Track (fond de la barre) */
 .skill-bar__track {
   width: 100%;
   height: 12px;
@@ -35,74 +29,42 @@
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Fill (remplissage animé) */
 .skill-bar__fill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color, #daab3a),
-    var(--secondary-color, #b67332)
-  );
   border-radius: 10px;
   position: relative;
   transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(218, 171, 58, 0.4);
 }
 
-/* Effet de brillance */
 .skill-bar__glow {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 100%
-  );
-  animation: shimmer 2s infinite;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4));
+  animation: pulse 2s infinite;
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
+
+
+@keyframes pulse {
+  0%,
   100% {
-    transform: translateX(100%);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
-/* ==========================================
-   MODE SOMBRE
-   ========================================== */
-
+/* Mode sombre */
 [data-theme="dark"] .skill-bar__name {
   color: var(--text-color, #ffffff);
 }
 
 [data-theme="dark"] .skill-bar__track {
   background: var(--bg-secondary, #2a2a2a);
-}
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-
-@media (max-width: 480px) {
-  .skill-bar__name {
-    font-size: 0.9rem;
-  }
-
-  .skill-bar__level {
-    font-size: 0.85rem;
-  }
-
-  .skill-bar__track {
-    height: 10px;
-  }
 }
