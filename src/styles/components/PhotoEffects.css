@@ -1,0 +1,500 @@
+/* ==========================================
+   EFFETS ANIMÉS AUTOUR DE LA PHOTO - CORRIGÉ
+   ========================================== */
+
+/* ==========================================
+   MODE JOUR - RAYONS DE SOLEIL ANIMÉS
+   ========================================== */
+
+[data-theme="light"] .hero__image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 0deg,
+    transparent 0deg 2deg,
+    rgba(218, 171, 58, 0.15) 2deg 4deg
+  );
+  border-radius: 50%;
+  animation: rotateSunRays 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Deuxième couche de rayons (effet de profondeur) */
+[data-theme="light"] .hero__image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 45deg,
+    transparent 0deg 3deg,
+    rgba(244, 164, 96, 0.1) 3deg 6deg
+  );
+  border-radius: 50%;
+  animation: rotateSunRays 30s linear infinite reverse;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Animation de rotation des rayons */
+@keyframes rotateSunRays {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Effet de vague/pulsation sur les rayons */
+[data-theme="light"] .hero__image-decoration {
+  animation: rotate 20s linear infinite, pulseSunGlow 3s ease-in-out infinite !important;
+  box-shadow: 0 0 20px rgba(218, 171, 58, 0.3), 0 0 40px rgba(244, 164, 96, 0.2) !important;
+}
+
+@keyframes pulseSunGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(218, 171, 58, 0.3),
+      0 0 40px rgba(244, 164, 96, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(218, 171, 58, 0.5),
+      0 0 60px rgba(244, 164, 96, 0.3);
+    transform: scale(1.05);
+  }
+}
+
+/* Particules dorées autour de la photo en mode jour */
+.hero__sun-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130%;
+  height: 130%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3;
+  display: none;
+}
+
+[data-theme="light"] .hero__sun-particles {
+  display: block !important;
+}
+
+[data-theme="dark"] .hero__sun-particles {
+  display: none !important;
+}
+
+.sun-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.9),
+    rgba(255, 165, 0, 0.5),
+    transparent
+  );
+  border-radius: 50%;
+  animation: floatSunParticle 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.4);
+}
+
+/* Positionner 8 particules en cercle */
+.sun-particle:nth-child(1) {
+  top: 0;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.sun-particle:nth-child(2) {
+  top: 15%;
+  right: 15%;
+  animation-delay: 0.4s;
+}
+
+.sun-particle:nth-child(3) {
+  top: 50%;
+  right: 0;
+  animation-delay: 0.8s;
+}
+
+.sun-particle:nth-child(4) {
+  bottom: 15%;
+  right: 15%;
+  animation-delay: 1.2s;
+}
+
+.sun-particle:nth-child(5) {
+  bottom: 0;
+  left: 50%;
+  animation-delay: 1.6s;
+}
+
+.sun-particle:nth-child(6) {
+  bottom: 15%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.sun-particle:nth-child(7) {
+  top: 50%;
+  left: 0;
+  animation-delay: 2.4s;
+}
+
+.sun-particle:nth-child(8) {
+  top: 15%;
+  left: 15%;
+  animation-delay: 2.8s;
+}
+
+@keyframes floatSunParticle {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   MODE NUIT - AURA LUNAIRE ET ÉTOILES ORBITALES
+   ========================================== */
+
+/* Aura lunaire douce */
+[data-theme="dark"] .hero__image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(147, 197, 253, 0.2) 0%,
+    rgba(96, 165, 250, 0.15) 30%,
+    rgba(59, 130, 246, 0.08) 60%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  animation: pulseMoonAura 4s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Halo extérieur */
+[data-theme="dark"] .hero__image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    transparent 50%,
+    rgba(191, 219, 254, 0.12) 70%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  animation: pulseMoonAura 6s ease-in-out infinite reverse;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes pulseMoonAura {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* Cercle de décoration avec lueur */
+[data-theme="dark"] .hero__image-decoration {
+  animation: rotate 20s linear infinite, glowMoon 3s ease-in-out infinite !important;
+  box-shadow: 0 0 30px rgba(147, 197, 253, 0.4),
+    0 0 60px rgba(59, 130, 246, 0.3) !important;
+}
+
+@keyframes glowMoon {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(147, 197, 253, 0.4),
+      0 0 60px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(147, 197, 253, 0.6),
+      0 0 80px rgba(59, 130, 246, 0.4);
+  }
+}
+
+/* Étoiles orbitales en mode nuit */
+.hero__moon-stars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3;
+  display: none;
+  animation: rotateStars 40s linear infinite;
+}
+
+[data-theme="dark"] .hero__moon-stars {
+  display: block !important;
+}
+
+[data-theme="light"] .hero__moon-stars {
+  display: none !important;
+}
+
+@keyframes rotateStars {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Étoiles individuelles */
+.moon-star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 1), 0 0 15px rgba(147, 197, 253, 0.8);
+  animation: twinkleStar 2s ease-in-out infinite;
+}
+
+/* Effet de croix sur les étoiles */
+.moon-star::before,
+.moon-star::after {
+  content: "";
+  position: absolute;
+  background: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+.moon-star::before {
+  width: 10px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moon-star::after {
+  width: 1px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Positionner 12 étoiles autour */
+.moon-star:nth-child(1) {
+  top: 5%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.moon-star:nth-child(2) {
+  top: 10%;
+  right: 25%;
+  animation-delay: 0.3s;
+}
+
+.moon-star:nth-child(3) {
+  top: 25%;
+  right: 10%;
+  animation-delay: 0.6s;
+}
+
+.moon-star:nth-child(4) {
+  top: 50%;
+  right: 5%;
+  animation-delay: 0.9s;
+}
+
+.moon-star:nth-child(5) {
+  bottom: 25%;
+  right: 10%;
+  animation-delay: 1.2s;
+}
+
+.moon-star:nth-child(6) {
+  bottom: 10%;
+  right: 25%;
+  animation-delay: 1.5s;
+}
+
+.moon-star:nth-child(7) {
+  bottom: 5%;
+  left: 50%;
+  animation-delay: 1.8s;
+}
+
+.moon-star:nth-child(8) {
+  bottom: 10%;
+  left: 25%;
+  animation-delay: 2.1s;
+}
+
+.moon-star:nth-child(9) {
+  bottom: 25%;
+  left: 10%;
+  animation-delay: 2.4s;
+}
+
+.moon-star:nth-child(10) {
+  top: 50%;
+  left: 5%;
+  animation-delay: 2.7s;
+}
+
+.moon-star:nth-child(11) {
+  top: 25%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+.moon-star:nth-child(12) {
+  top: 10%;
+  left: 25%;
+  animation-delay: 3.3s;
+}
+
+@keyframes twinkleStar {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+/* Quelques étoiles plus grandes */
+.moon-star:nth-child(3),
+.moon-star:nth-child(7),
+.moon-star:nth-child(11) {
+  width: 7px;
+  height: 7px;
+}
+
+.moon-star:nth-child(3)::before,
+.moon-star:nth-child(7)::before,
+.moon-star:nth-child(11)::before {
+  width: 14px;
+}
+
+.moon-star:nth-child(3)::after,
+.moon-star:nth-child(7)::after,
+.moon-star:nth-child(11)::after {
+  height: 14px;
+}
+
+/* S'assurer que la photo reste visible */
+.hero__photo {
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 968px) {
+  /* Réduire les effets sur tablette */
+  [data-theme="light"] .hero__image-wrapper::before,
+  [data-theme="light"] .hero__image-wrapper::after {
+    width: 110%;
+    height: 110%;
+  }
+
+  [data-theme="dark"] .hero__image-wrapper::before,
+  [data-theme="dark"] .hero__image-wrapper::after {
+    width: 110%;
+    height: 110%;
+  }
+
+  .hero__sun-particles,
+  .hero__moon-stars {
+    width: 120%;
+    height: 120%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Simplifier sur mobile pour la performance */
+  [data-theme="light"] .hero__image-wrapper::after {
+    display: none; /* Masquer la 2ème couche de rayons */
+  }
+
+  [data-theme="dark"] .hero__image-wrapper::after {
+    display: none; /* Masquer le halo extérieur */
+  }
+
+  .sun-particle,
+  .moon-star {
+    width: 4px;
+    height: 4px;
+  }
+
+  .moon-star::before {
+    width: 8px;
+  }
+
+  .moon-star::after {
+    height: 8px;
+  }
+}
+
+/* ==========================================
+   PRÉFÉRENCE MOUVEMENT RÉDUIT
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="light"] .hero__image-wrapper::before,
+  [data-theme="light"] .hero__image-wrapper::after,
+  [data-theme="dark"] .hero__image-wrapper::before,
+  [data-theme="dark"] .hero__image-wrapper::after,
+  .hero__moon-stars,
+  .sun-particle,
+  .moon-star {
+    animation: none !important;
+  }
+
+  [data-theme="light"] .hero__image-decoration,
+  [data-theme="dark"] .hero__image-decoration {
+    animation: rotate 20s linear infinite !important;
+  }
+}

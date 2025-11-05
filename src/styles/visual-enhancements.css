@@ -1,0 +1,461 @@
+/* ==========================================
+   AMÉLIORATIONS VISUELLES GLOBALES
+   ========================================== */
+
+/* ==========================================
+   1. ANIMATIONS DE SCROLL ET PARALLAXE
+   ========================================== */
+
+@keyframes fadeInChar {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section active avec transition */
+.section-active {
+  position: relative;
+}
+
+.section-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--primary-color),
+    transparent
+  );
+  animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================
+   2. GLASSMORPHISM (Effet verre dépoli)
+   ========================================== */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(26, 26, 46, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Appliquer l'effet aux cartes */
+.project-card,
+.contact__info-card,
+.about__interest,
+.timeline__card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover,
+.contact__info-card:hover,
+.about__interest:hover,
+.timeline__card:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(var(--primary-color-rgb, 218, 171, 58), 0.2);
+}
+
+/* ==========================================
+   3. EFFETS DE BRILLANCE / SHINE
+   ========================================== */
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform 0.6s ease;
+}
+
+.shine-effect:hover::before {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+/* Appliquer l'effet shine aux boutons et cartes */
+.hero__btn,
+.about__btn,
+.contact__submit,
+.project-card__overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__btn::before,
+.about__btn::before,
+.contact__submit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.hero__btn:hover::before,
+.about__btn:hover::before,
+.contact__submit:hover::before {
+  left: 100%;
+}
+
+/* ==========================================
+   4. OMBRES DYNAMIQUES
+   ========================================== */
+
+.dynamic-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.dynamic-shadow:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+    0 15px 25px rgba(var(--primary-color-rgb, 218, 171, 58), 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   5. TYPOGRAPHIE ARTISTIQUE
+   ========================================== */
+
+/* Titres avec dégradé animé */
+.gradient-text-animated {
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--accent-color),
+    var(--primary-color)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Effet hover sur les titres */
+.title-hover-effect {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.title-hover-effect::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.title-hover-effect:hover {
+  transform: translateY(-2px);
+}
+
+.title-hover-effect:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   6. EFFET DE VAGUES (Background alternatif)
+   ========================================== */
+
+.wave-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-background::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--primary-color-rgb, 218, 171, 58), 0.1),
+    transparent
+  );
+  animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(-25%) translateY(-10px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ==========================================
+   7. FORMES GÉOMÉTRIQUES FLOTTANTES
+   ========================================== */
+
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-shape {
+  position: absolute;
+  opacity: 0.1;
+  animation: floatShape 20s ease-in-out infinite;
+}
+
+.floating-shape:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-shape:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  background: var(--secondary-color);
+  top: 60%;
+  right: 10%;
+  animation-delay: 5s;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.floating-shape:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-color);
+  bottom: 20%;
+  left: 50%;
+  animation-delay: 10s;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes floatShape {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -30px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-20px, 20px) rotate(180deg);
+  }
+  75% {
+    transform: translate(20px, 30px) rotate(270deg);
+  }
+}
+
+/* ==========================================
+   8. TRANSITIONS DE THÈME AMÉLIORÉES
+   ========================================== */
+
+/* Animation du toggle de thème */
+.theme-toggle {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-color), transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  opacity: 0;
+}
+
+.theme-toggle:active::before {
+  width: 300px;
+  height: 300px;
+  opacity: 0.5;
+}
+
+/* Transition globale lors du changement de thème */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+* {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* ==========================================
+   9. EFFET PULSE SUR LES ÉLÉMENTS IMPORTANTS
+   ========================================== */
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--primary-color-rgb, 218, 171, 58), 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(var(--primary-color-rgb, 218, 171, 58), 0);
+  }
+}
+
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+/* ==========================================
+   10. SMOOTH SCROLL
+   ========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Barre de scroll personnalisée */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 10px;
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 968px) {
+  /* Réduire les effets sur mobile pour la performance */
+  .shine-effect::before,
+  .floating-shape {
+    display: none;
+  }
+
+  .glass-card {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Désactiver les animations pour les utilisateurs qui préfèrent moins de mouvement */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

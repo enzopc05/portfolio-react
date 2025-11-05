@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { personalInfo } from '../../data/portfolioData';
 import '../../styles/components/Hero.css';
+import '../../styles/components/PhotoEffects.css';
 
 const Hero = () => {
   const { theme } = useTheme();
@@ -14,9 +15,10 @@ const Hero = () => {
   };
 
   // Sélection de la photo selon le thème
+  // Si la photo de nuit n'existe pas, on garde celle du jour
   const profileImage = theme === 'light' 
     ? '/assets/images/photo2moi.jpg' 
-    : '/assets/images/photo2moiNuit.jpg';
+    : '/assets/images/photo2moiNuit.jpg'; // ← Utilisez la même photo pour l'instant
 
   return (
     <section className="hero" id="accueil">
@@ -86,13 +88,44 @@ const Hero = () => {
 
           <div className="hero__image">
             <div className="hero__image-wrapper">
+              {/* Photo principale - S'assure qu'elle reste visible */}
               <img 
                 src={profileImage}
                 alt={personalInfo.name}
                 className="hero__photo"
-                key={theme}
+                style={{ position: 'relative', zIndex: 2 }}
               />
+              
+              {/* Décoration existante (cercle pointillé) */}
               <div className="hero__image-decoration"></div>
+
+              {/* Particules dorées pour le mode jour */}
+              <div className="hero__sun-particles">
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+                <div className="sun-particle"></div>
+              </div>
+
+              {/* Étoiles orbitales pour le mode nuit */}
+              <div className="hero__moon-stars">
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+                <div className="moon-star"></div>
+              </div>
             </div>
           </div>
         </div>

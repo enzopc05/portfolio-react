@@ -1,0 +1,123 @@
+/* ==========================================
+   ANIMATION DE TRANSITION DE THÈME
+   ========================================== */
+
+.theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icône centrale qui tourne */
+.theme-transition-icon {
+  position: relative;
+  z-index: 100000;
+  animation: rotateAndScale 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-sun,
+.transition-moon {
+  font-size: 80px;
+  display: block;
+  animation: iconPulse 1s ease;
+}
+
+/* Animation de rotation */
+@keyframes rotateAndScale {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Pulse de l'icône */
+@keyframes iconPulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5) drop-shadow(0 0 20px currentColor);
+  }
+}
+
+/* Effet de vague/ripple qui se propage */
+.theme-transition-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-color), transparent);
+  transform: translate(-50%, -50%);
+  animation: rippleEffect 1s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+@keyframes rippleEffect {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 2000px;
+    height: 2000px;
+    opacity: 0;
+  }
+}
+
+/* Effet de flash lors du changement */
+@keyframes flashEffect {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .transition-sun,
+  .transition-moon {
+    font-size: 60px;
+  }
+
+  @keyframes rippleEffect {
+    100% {
+      width: 1000px;
+      height: 1000px;
+    }
+  }
+}
+
+/* ==========================================
+   PRÉFÉRENCE MOUVEMENT RÉDUIT
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition-overlay {
+    display: none;
+  }
+}
