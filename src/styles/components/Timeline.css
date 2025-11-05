@@ -1,0 +1,387 @@
+/* ==========================================
+   SECTION TIMELINE - STYLES SIMPLIFIÉS
+   ========================================== */
+
+.timeline-section {
+  padding: 6rem 2rem;
+  background: var(--bg-secondary);
+  min-height: 100vh;
+}
+
+.timeline-section__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* En-tête */
+.timeline-section__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.timeline-section__title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.timeline-section__subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Timeline principale */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Ligne verticale centrale */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  transform: translateX(-50%);
+}
+
+/* Items de la timeline */
+.timeline__item {
+  display: flex;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+/* Alternance gauche/droite */
+.timeline__item:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+.timeline__item:nth-child(even) {
+  justify-content: flex-end;
+}
+
+/* Marqueur central */
+.timeline__marker {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--accent-color, var(--primary-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 8px var(--bg-secondary), 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.timeline__icon {
+  font-size: 2rem;
+}
+
+/* Contenu */
+.timeline__content {
+  width: 45%;
+}
+
+.timeline__item:nth-child(odd) .timeline__content {
+  text-align: right;
+}
+
+.timeline__item:nth-child(even) .timeline__content {
+  text-align: left;
+}
+
+.timeline__card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.timeline__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-color, var(--primary-color));
+}
+
+/* En-tête de la carte */
+.timeline__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.timeline__item:nth-child(odd) .timeline__header {
+  justify-content: flex-end;
+}
+
+.timeline__item:nth-child(even) .timeline__header {
+  justify-content: flex-start;
+}
+
+.timeline__period {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.timeline__year {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-color, var(--primary-color));
+  padding: 0.3rem 0.8rem;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+}
+
+.timeline__badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  background: var(--accent-color, var(--primary-color));
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* Description */
+.timeline__description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Réalisations */
+.timeline__achievements {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border-color);
+}
+
+.timeline__achievements-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.timeline__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.timeline__item:nth-child(odd) .timeline__list-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.timeline__check {
+  color: var(--accent-color, var(--primary-color));
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* Statistiques du parcours */
+.timeline-section__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.timeline-stat {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.timeline-stat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color);
+}
+
+.timeline-stat__icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-stat__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline-stat__value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.timeline-stat__label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 968px) {
+  .timeline-section {
+    padding: 4rem 1rem;
+  }
+
+  .timeline-section__title {
+    font-size: 2.5rem;
+  }
+
+  /* Timeline en mode mobile : tout à gauche */
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline__item {
+    justify-content: flex-start !important;
+  }
+
+  .timeline__content {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+    text-align: left !important;
+  }
+
+  .timeline__marker {
+    left: 30px;
+  }
+
+  .timeline__header {
+    justify-content: flex-start !important;
+  }
+
+  .timeline__list-item {
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+
+  .timeline-section__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-section__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline__card {
+    padding: 1.5rem;
+  }
+
+  .timeline__period {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-section {
+    padding: 3rem 1rem;
+  }
+
+  .timeline__marker {
+    width: 50px;
+    height: 50px;
+  }
+
+  .timeline__icon {
+    font-size: 1.5rem;
+  }
+
+  .timeline__content {
+    width: calc(100% - 70px);
+    margin-left: 70px;
+  }
+}
+
+/* ==========================================
+   MODE SOMBRE
+   ========================================== */
+
+[data-theme="dark"] .timeline-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .timeline-section__title,
+[data-theme="dark"] .timeline__period,
+[data-theme="dark"] .timeline__achievements-title {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .timeline-section__subtitle,
+[data-theme="dark"] .timeline__description,
+[data-theme="dark"] .timeline__list-item {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .timeline__card,
+[data-theme="dark"] .timeline-stat {
+  background: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .timeline__year {
+  background: var(--bg-primary);
+}

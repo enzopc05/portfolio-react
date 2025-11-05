@@ -5,6 +5,9 @@ import SkillBar from '../common/SkillBar';
 import '../../styles/components/Skills.css';
 
 const Skills = () => {
+  // DEBUG: afficher data et état initial
+  console.log('Skills data importée:', skills);
+
   const [elementRef, isVisible] = useIntersectionObserver();
   const [activeCategory, setActiveCategory] = useState('webDev');
 
@@ -15,13 +18,33 @@ const Skills = () => {
     tools: { label: 'Outils & Méthodes', icon: '🛠️' }
   };
 
-  const currentSkills = skills[activeCategory];
+  // Garde : éviter crash si data manquante
+  const currentSkills = skills && skills[activeCategory] ? skills[activeCategory] : null;
 
-  // Calculer le niveau moyen de la catégorie
+  if (!skills) {
+    console.warn('Le fichier src/data/portfolioData.js n\'exporte pas "skills" ou est mal importé.');
+  }
+
+  if (!currentSkills) {
+    // Rendu de secours pour diagnostic (évite le crash du reste de l'app)
+    return (
+      <section className="skills" id="competences" ref={elementRef}>
+        <div className="skills__container">
+          <div className="skills__header">
+            <h2 className="skills__title">Mes Compétences</h2>
+            <p className="skills__subtitle">Aucune donnée de compétences trouvée pour la catégorie "{activeCategory}".</p>
+            <p style={{color:'red'}}>Regarder la console pour plus d'infos.</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Calculer le niveau moyen de la catégorie (sécurisé)
   const averageLevel = currentSkills 
     ? Math.round(
-        currentSkills.items.reduce((sum, skill) => sum + skill.level, 0) / 
-        currentSkills.items.length
+        currentSkills.items.reduce((sum, skill) => sum + (skill.level || 0), 0) / 
+        (currentSkills.items.length || 1)
       )
     : 0;
 

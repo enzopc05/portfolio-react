@@ -1,27 +1,36 @@
+/* ==========================================
+   SECTION COMPÉTENCES - STYLES COMPLETS
+   ========================================== */
+
 .skills {
   padding: 6rem 2rem;
-  background: var(--bg-secondary);
+  background: var(--bg-primary, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .skills__container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
+/* En-tête */
 .skills__header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .skills__title {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--text-color, #1a1a1a);
   margin-bottom: 1rem;
   background: linear-gradient(
-    45deg,
-    var(--primary-color),
-    var(--secondary-color)
+    135deg,
+    var(--primary-color, #daab3a),
+    var(--secondary-color, #b67332)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -30,52 +39,51 @@
 
 .skills__subtitle {
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #666);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Onglets */
+/* Onglets de catégories */
 .skills__tabs {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
 .skills__tab {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  border: 2px solid var(--border-color);
-  background: var(--card-bg);
+  background: var(--card-bg, #f8f9fa);
+  border: 2px solid var(--border-color, #e0e0e0);
   border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
+  padding: 1rem 2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color, #1a1a1a);
 }
 
 .skills__tab:hover {
-  border-color: var(--primary-color);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px var(--shadow);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color, #daab3a);
 }
 
 .skills__tab--active {
   background: linear-gradient(
     135deg,
-    var(--primary-color),
-    var(--secondary-color)
+    var(--primary-color, #daab3a),
+    var(--secondary-color, #b67332)
   );
   color: white;
   border-color: transparent;
-  box-shadow: 0 8px 25px var(--shadow);
-  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(218, 171, 58, 0.3);
 }
 
 .skills__tab-icon {
@@ -88,41 +96,31 @@
 
 /* Contenu */
 .skills__content {
-  animation: fadeInUp 0.5s ease;
+  margin-top: 2rem;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Carte d'information */
 .skills__info {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .skills__info-card {
-  background: var(--card-bg);
+  background: var(--card-bg, #f8f9fa);
   border-radius: 20px;
   padding: 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
-  box-shadow: 0 4px 15px var(--shadow);
-  border: 2px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--border-color, #e0e0e0);
 }
 
 .skills__info-icon {
   font-size: 4rem;
   background: linear-gradient(
     135deg,
-    var(--primary-color),
-    var(--secondary-color)
+    var(--primary-color, #daab3a),
+    var(--secondary-color, #b67332)
   );
   width: 80px;
   height: 80px;
@@ -140,13 +138,13 @@
 .skills__info-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--text-color, #1a1a1a);
   margin: 0 0 0.5rem 0;
 }
 
 .skills__info-subtitle {
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #666);
   margin: 0;
 }
 
@@ -155,28 +153,28 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem 2rem;
-  background: var(--bg-secondary);
+  background: var(--bg-secondary, #ffffff);
   border-radius: 15px;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-color, #daab3a);
 }
 
 .skills__info-average-label {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #666);
   margin-bottom: 0.5rem;
 }
 
 .skills__info-average-value {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--primary-color, #daab3a);
 }
 
 /* Grille des compétences */
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -202,9 +200,10 @@
   justify-content: center;
   gap: 2rem;
   padding: 1.5rem;
-  background: var(--card-bg);
+  background: var(--card-bg, #f8f9fa);
   border-radius: 15px;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .skills__legend-item {
@@ -212,7 +211,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #666);
 }
 
 .skills__legend-dot {
@@ -242,19 +241,19 @@
 }
 
 .skills__stat {
-  background: var(--card-bg);
+  background: var(--card-bg, #f8f9fa);
   padding: 2rem;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 4px 15px var(--shadow);
-  border: 2px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--border-color, #e0e0e0);
   transition: all 0.3s ease;
 }
 
 .skills__stat:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px var(--shadow);
-  border-color: var(--primary-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-color, #daab3a);
 }
 
 .skills__stat-value {
@@ -263,8 +262,8 @@
   font-weight: 700;
   background: linear-gradient(
     45deg,
-    var(--primary-color),
-    var(--secondary-color)
+    var(--primary-color, #daab3a),
+    var(--secondary-color, #b67332)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -275,11 +274,14 @@
 .skills__stat-label {
   display: block;
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #666);
   font-weight: 600;
 }
 
-/* Responsive */
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
 @media (max-width: 968px) {
   .skills {
     padding: 4rem 1rem;
@@ -324,6 +326,10 @@
 }
 
 @media (max-width: 480px) {
+  .skills {
+    padding: 3rem 1rem;
+  }
+
   .skills__info-card {
     padding: 1.5rem;
   }
@@ -341,4 +347,45 @@
   .skills__stat-value {
     font-size: 2.5rem;
   }
+
+  .skills__tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================
+   MODE SOMBRE
+   ========================================== */
+
+[data-theme="dark"] .skills {
+  background: var(--bg-primary, #1a1a1a);
+}
+
+[data-theme="dark"] .skills__title,
+[data-theme="dark"] .skills__info-title {
+  color: var(--text-color, #ffffff);
+}
+
+[data-theme="dark"] .skills__subtitle,
+[data-theme="dark"] .skills__info-subtitle,
+[data-theme="dark"] .skills__legend-item {
+  color: var(--text-secondary, #b0b0b0);
+}
+
+[data-theme="dark"] .skills__tab {
+  background: var(--card-bg, #2a2a2a);
+  color: var(--text-color, #ffffff);
+  border-color: var(--border-color, #3a3a3a);
+}
+
+[data-theme="dark"] .skills__info-card,
+[data-theme="dark"] .skills__stat,
+[data-theme="dark"] .skills__legend {
+  background: var(--card-bg, #2a2a2a);
+  border-color: var(--border-color, #3a3a3a);
+}
+
+[data-theme="dark"] .skills__info-average {
+  background: var(--bg-secondary, #1a1a1a);
 }
