@@ -1,0 +1,258 @@
+/* ==========================================
+   FOND ANIMÉ - STYLES
+   ========================================== */
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Orbes de gradient animés */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* Premier orbe - plus grand */
+.gradient-orb-1 {
+  width: 600px;
+  height: 600px;
+  top: -10%;
+  right: -10%;
+  animation-delay: 0s;
+  animation-duration: 25s;
+}
+
+/* Deuxième orbe - moyen */
+.gradient-orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -15%;
+  left: -10%;
+  animation-delay: 5s;
+  animation-duration: 30s;
+}
+
+/* Troisième orbe - plus petit */
+.gradient-orb-3 {
+  width: 400px;
+  height: 400px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 10s;
+  animation-duration: 35s;
+}
+
+/* Couleurs pour le mode jour (soleil) */
+.animated-background.light .gradient-orb-1 {
+  background: radial-gradient(
+    circle,
+    rgba(218, 171, 58, 0.6) 0%,
+    rgba(244, 164, 96, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.animated-background.light .gradient-orb-2 {
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 87, 0.5) 0%,
+    rgba(255, 165, 0, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+.animated-background.light .gradient-orb-3 {
+  background: radial-gradient(
+    circle,
+    rgba(182, 115, 50, 0.5) 0%,
+    rgba(218, 171, 58, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* Couleurs pour le mode nuit (lune et étoiles) */
+.animated-background.dark .gradient-orb-1 {
+  background: radial-gradient(
+    circle,
+    rgba(74, 85, 104, 0.6) 0%,
+    rgba(100, 116, 139, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.animated-background.dark .gradient-orb-2 {
+  background: radial-gradient(
+    circle,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(51, 65, 85, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+.animated-background.dark .gradient-orb-3 {
+  background: radial-gradient(
+    circle,
+    rgba(71, 85, 105, 0.5) 0%,
+    rgba(148, 163, 184, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* Effet mesh gradient (grille de fond) */
+.mesh-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      var(--primary-color) 50px,
+      var(--primary-color) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      var(--primary-color) 50px,
+      var(--primary-color) 51px
+    );
+  animation: meshMove 30s linear infinite;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.05);
+  }
+}
+
+@keyframes meshMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Effet de pulsation pour le mode jour */
+.animated-background.light .gradient-orb {
+  animation: float 20s ease-in-out infinite, pulse-light 4s ease-in-out infinite;
+}
+
+@keyframes pulse-light {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Effet de scintillement pour le mode nuit */
+.animated-background.dark .gradient-orb {
+  animation: float 20s ease-in-out infinite, twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 968px) {
+  .gradient-orb-1 {
+    width: 400px;
+    height: 400px;
+  }
+
+  .gradient-orb-2 {
+    width: 350px;
+    height: 350px;
+  }
+
+  .gradient-orb-3 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .gradient-orb {
+    filter: blur(60px);
+  }
+}
+
+@media (max-width: 480px) {
+  .gradient-orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .gradient-orb-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .gradient-orb-3 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .gradient-orb {
+    filter: blur(40px);
+    opacity: 0.2;
+  }
+
+  .mesh-gradient {
+    opacity: 0.03;
+  }
+}
+
+/* ==========================================
+   PERFORMANCE - RÉDUCTION D'ANIMATIONS
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-orb,
+  .mesh-gradient {
+    animation: none;
+  }
+
+  .gradient-orb {
+    opacity: 0.2;
+  }
+}

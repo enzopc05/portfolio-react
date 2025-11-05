@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTheme } from '../../context/ThemeContext';
-import '../../styles/components/AnimatedBackground.css';
+import { useTheme } from '../context/ThemeContext';
+import '../styles/components/AnimatedBackground.css';
 
 const AnimatedBackground = () => {
   const { theme } = useTheme();

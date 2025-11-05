@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { useTheme } from '../../context/ThemeContext';
-import '../../styles/components/Particles.css';
+import { useTheme } from '../context/ThemeContext';
+import '../styles/components/Particles.css';
 
 const Particles = () => {
   const canvasRef = useRef(null);

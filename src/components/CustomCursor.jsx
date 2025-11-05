@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../../styles/components/CustomCursor.css';
+import '../styles/components/CustomCursor.css';
 
 const CustomCursor = () => {
   const cursorRef = useRef(null);

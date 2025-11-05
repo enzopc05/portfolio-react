@@ -11,6 +11,9 @@ import Timeline from "./components/sections/Timeline";
 import Contact from "./components/sections/Contact";
 import MentionsLegales from "./components/legal/MentionsLegales";
 import PolitiqueConfidentialite from "./components/legal/PolitiqueConfidentialite";
+import AnimatedBackground from "./components/AnimatedBackground";
+import Particles from "./components/Particles";
+import CustomCursor from "./components/CustomCursor";
 import "./styles/theme.css";
 
 // Composant pour la page d'accueil principale
@@ -29,6 +32,12 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App">
+        {/* Effets visuels globaux - z-index gérés dans leurs CSS respectifs */}
+        <AnimatedBackground />
+        <Particles />
+        <CustomCursor />
+
+        {/* Structure principale du site */}
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
