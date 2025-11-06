@@ -1,0 +1,210 @@
+/* ==========================================
+   COMPOSANT SKELETON - ÉTATS DE CHARGEMENT
+   ========================================== */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--border-color) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Variantes de Skeleton */
+.skeleton--text {
+  height: 16px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.skeleton--title {
+  height: 28px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+.skeleton--circular {
+  border-radius: 50%;
+}
+
+.skeleton--rectangular {
+  border-radius: 8px;
+}
+
+/* Groupe de skeletons */
+.skeleton-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==========================================
+   SKELETON CARD (Pour les projets)
+   ========================================== */
+
+.skeleton-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.skeleton-card__image {
+  width: 100%;
+  border-radius: 0;
+}
+
+.skeleton-card__content {
+  padding: 1.5rem;
+}
+
+.skeleton-card__tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ==========================================
+   SKELETON PROFILE (Pour la section About)
+   ========================================== */
+
+.skeleton-profile {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+}
+
+.skeleton-profile__content {
+  flex: 1;
+}
+
+/* ==========================================
+   SKELETON TIMELINE
+   ========================================== */
+
+.skeleton-timeline {
+  position: relative;
+  padding-left: 4rem;
+}
+
+.skeleton-timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.skeleton-timeline__item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.skeleton-timeline__dot {
+  position: absolute;
+  left: -3rem;
+  top: 0;
+}
+
+.skeleton-timeline__content {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+/* ==========================================
+   SKELETON SKILLS (Pour les barres de compétences)
+   ========================================== */
+
+.skeleton-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skeleton-skill {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-skill__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-skill__bar {
+  width: 100%;
+  border-radius: 50px;
+}
+
+/* ==========================================
+   MODE SOMBRE
+   ========================================== */
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+}
+
+[data-theme="dark"] .skeleton-card,
+[data-theme="dark"] .skeleton-profile,
+[data-theme="dark"] .skeleton-timeline__content {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .skeleton-profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .skeleton-timeline {
+    padding-left: 2rem;
+  }
+
+  .skeleton-timeline__dot {
+    left: -1.5rem;
+  }
+}
+
+/* ==========================================
+   PRÉFÉRENCE MOUVEMENT RÉDUIT
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: var(--bg-secondary);
+  }
+}

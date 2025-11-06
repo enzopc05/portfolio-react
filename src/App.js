@@ -12,7 +12,13 @@ import Contact from "./components/sections/Contact";
 import MentionsLegales from "./components/legal/MentionsLegales";
 import PolitiqueConfidentialite from "./components/legal/PolitiqueConfidentialite";
 
-// Composants visuels
+// ============================================
+// NOUVEAUX IMPORTS - Composants UX/UI
+// ============================================
+import NotFound from "./components/NotFound";
+import ScrollToTop from "./components/common/ScrollToTop";
+
+// Composants visuels existants
 import AnimatedBackground from "./components/AnimatedBackground";
 import Particles from "./components/Particles";
 import CustomCursor from "./components/CustomCursor";
@@ -49,26 +55,26 @@ function App() {
     // Ajouter la classe glass-card aux éléments appropriés
     const addGlassEffect = () => {
       const cards = document.querySelectorAll(
-        '.project-card, .contact__info-card, .about__interest, .skills__tab, .timeline__card'
+        ".project-card, .contact__info-card, .about__interest, .skills__tab, .timeline__card"
       );
-      cards.forEach(card => {
-        card.classList.add('dynamic-shadow');
+      cards.forEach((card) => {
+        card.classList.add("dynamic-shadow");
       });
 
       // Ajouter l'effet shine aux boutons
       const buttons = document.querySelectorAll(
-        '.hero__btn, .about__btn, .contact__submit, .projects__filter'
+        ".hero__btn, .about__btn, .contact__submit, .projects__filter"
       );
-      buttons.forEach(btn => {
-        btn.classList.add('shine-effect');
+      buttons.forEach((btn) => {
+        btn.classList.add("shine-effect");
       });
 
       // Ajouter l'effet aux titres
       const titles = document.querySelectorAll(
-        'h1, h2.projects__title, h2.skills__title, h2.timeline-section__title'
+        "h1, h2.projects__title, h2.skills__title, h2.timeline-section__title"
       );
-      titles.forEach(title => {
-        title.classList.add('gradient-text-animated', 'title-hover-effect');
+      titles.forEach((title) => {
+        title.classList.add("gradient-text-animated", "title-hover-effect");
       });
     };
 
@@ -83,11 +89,11 @@ function App() {
         <AnimatedBackground />
         <FloatingShapes />
         <Particles />
-        
+
         {/* Effets visuels de premier plan */}
         <CustomCursor />
         <ThemeTransition />
-        
+
         {/* Structure principale du site */}
         <Header />
         <main>
@@ -98,9 +104,18 @@ function App() {
               path="/politique-confidentialite"
               element={<PolitiqueConfidentialite />}
             />
+            {/* ============================================
+                NOUVELLE ROUTE 404 - DOIT ÊTRE LA DERNIÈRE
+                ============================================ */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
+
+        {/* ============================================
+            NOUVEAU COMPOSANT - Bouton Scroll to Top
+            ============================================ */}
+        <ScrollToTop showAfter={300} position="bottom-right" />
       </div>
     </ThemeProvider>
   );
