@@ -1,0 +1,80 @@
+:root {
+  --card-bg: #0b0f1a;
+  --card-fg: #e5e7eb;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.2);
+  --primary: #6366f1;
+  --primary-ink: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --card-bg: #ffffff;
+    --card-fg: #0f172a;
+    --muted: #475569;
+    --border: rgba(15, 23, 42, 0.12);
+  }
+}
+
+/* Section + Grid */
+.projects-section { margin: 3rem auto; max-width: 1100px; padding: 0 1rem; }
+.projects-header h2 { font-size: clamp(1.5rem, 2vw, 2rem); margin: 0 0 .25rem; }
+.projects-header p { color: var(--muted); margin: 0 0 1.25rem; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Card */
+.project-card {
+  background: var(--card-bg);
+  color: var(--card-fg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+.project-card:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Thumb with aspect ratio */
+.project-thumb { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #0a0a0a; }
+.project-thumb img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* Body */
+.project-body { padding: .875rem .9rem 1rem; display: grid; gap: .55rem; }
+.project-title { margin: 0; font-size: 1.05rem; }
+.project-desc { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.45; }
+
+/* Tags */
+.tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin: .25rem 0 0; padding: 0; list-style: none; }
+.tag-item {
+  font-size: .8rem; color: var(--muted); border: 1px solid var(--border);
+  padding: .2rem .5rem; border-radius: 999px; background: transparent;
+}
+
+/* Actions */
+.project-actions { margin-top: .35rem; display: flex; gap: .5rem; }
+.btn { font-size: .9rem; padding: .5rem .8rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border); }
+.btn-primary { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-secondary { background: transparent; color: var(--card-fg); }
+.btn-secondary:hover { background: rgba(148,163,184,.08); }
+
+/* Motion-friendly */
+@media (prefers-reduced-motion: reduce) {
+  .project-card { transition: none; }
+}

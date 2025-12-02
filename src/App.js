@@ -24,6 +24,7 @@ import Particles from "./components/Particles";
 import CustomCursor from "./components/CustomCursor";
 import ThemeTransition from "./components/ThemeTransition.jsx";
 import FloatingShapes from "./components/FloatingShapes";
+import ProjectsGrid from "./components/ProjectsGrid";
 
 // Hooks personnalisés pour les animations
 import { useScrollAnimations } from "./hooks/useScrollAnimations";
