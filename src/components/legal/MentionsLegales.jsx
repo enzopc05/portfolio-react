@@ -4,6 +4,7 @@ import '../../styles/components/Legalpages.css';
 
 const MentionsLegales = () => {
   const currentYear = new Date().getFullYear();
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://';
 
   return (
     <div className="legal-page">
@@ -13,7 +14,7 @@ const MentionsLegales = () => {
 
         <section className="legal-block">
           <h2>1. Édition du site</h2>
-          <p>Le présent site, accessible à l'URL www.enzopc.com (le « Site »), est édité par :</p>
+          <p>Le présent site, accessible à l'URL {siteUrl} (le « Site »), est édité par :</p>
           <p><strong>{personalInfo.name}</strong>, résidant à {personalInfo.location}, de nationalité française.</p>
         </section>
 
@@ -46,7 +47,7 @@ const MentionsLegales = () => {
           <h2>5. Données personnelles</h2>
           <p>
             Le traitement de vos données à caractère personnel est régi par notre{' '}
-            <a href="#privacy">Politique de Confidentialité</a>, disponible depuis la section
+            <a href="/politique-confidentialite">Politique de Confidentialité</a>, disponible depuis la section
             dédiée du Site, conformément au Règlement Général sur la Protection des Données (RGPD).
           </p>
         </section>
@@ -103,7 +104,8 @@ const MentionsLegales = () => {
           <p>
             Ce site peut contenir des liens vers d'autres sites internet ou d'autres ressources
             disponibles sur Internet. Je n'ai pas la capacité de vérifier le contenu des sites
-            ainsi visités, et n'assume donc aucune responsabilité de ce fait.
+            ainsi visités, et n'assume donc aucune responsabilité de ce fait. Merci de me signaler
+            tout lien brisé ou contenu illicite constaté.
           </p>
         </section>
 
