@@ -53,6 +53,47 @@
   font-family: "Poppins", sans-serif;
 }
 
+.projects__filter--search {
+  border-radius: 12px;
+  min-width: 260px;
+}
+
+.projects__category-filter {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.projects__category-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.projects__category-btn:hover {
+  border-color: var(--primary-color);
+  background: var(--bg-secondary);
+}
+
+.projects__category-btn:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(218, 171, 58, 0.2);
+}
+
+.projects__category-btn--active {
+  background: var(--primary-color);
+  color: #141414;
+  border-color: var(--primary-color);
+}
+
 .projects__filter:hover {
   border-color: var(--primary-color);
 }
@@ -88,11 +129,70 @@
   font-weight: 500;
 }
 
+.projects__chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.projects__chip {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.projects__chip:hover {
+  border-color: var(--primary-color);
+}
+
+.projects__chip--active {
+  background: var(--primary-color);
+  color: #141414;
+  border-color: var(--primary-color);
+}
+
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
+}
+
+.projects__show-more {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.projects__show-more-btn {
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.projects__show-more-btn:hover {
+  background: var(--primary-color);
+  color: #141414;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(218, 171, 58, 0.3);
+}
+
+.projects__show-more-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 171, 58, 0.3);
 }
 
 .projects__empty {
