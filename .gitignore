@@ -89,6 +89,7 @@ Desktop.ini
 
 # Ignore project documents (allow a placeholder)
 public/documents/**
+public/images/projects/**
 !public/documents/.gitkeep
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
