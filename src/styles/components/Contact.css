@@ -264,6 +264,46 @@
   border: 2px solid rgba(231, 76, 60, 0.3);
 }
 
+.contact__message-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact__fallback {
+  margin-top: 0.75rem;
+  align-self: flex-start;
+  background: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact__fallback:hover,
+.contact__fallback:focus-visible {
+  background: var(--primary-color);
+  color: #0b0b0b;
+  outline: none;
+}
+
+.contact__field-error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.contact__honeypot {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
 /* Bouton d'envoi */
 .contact__submit {
   padding: 1rem 2rem;

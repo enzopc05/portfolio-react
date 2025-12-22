@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../../data/portfolioData';
+import { trackEvent } from '../../utils/analytics';
 import '../../styles/components/Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     email: '',
     message: '',
-    consent: false
+    consent: false,
+    honeypot: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,11 +22,36 @@ const Contact = () => {
     }));
   };
 
+  const validate = () => {
+    const nextErrors = {};
+
+    if (!formData.email) {
+      nextErrors.email = 'Email requis';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      nextErrors.email = 'Email invalide';
+    }
+
+    if (!formData.message || formData.message.trim().length < 10) {
+      nextErrors.message = 'Message trop court (min. 10 caractères)';
+    }
+
+    if (!formData.consent) {
+      nextErrors.consent = 'Vous devez accepter la politique de confidentialité';
+    }
+
+    if (formData.honeypot) {
+      nextErrors.honeypot = 'Spam détecté';
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!formData.consent) {
-      alert('Veuillez accepter la politique de confidentialité');
+
+    if (!validate()) {
+      setSubmitStatus(null);
       return;
     }
 
@@ -45,12 +73,16 @@ const Contact = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ email: '', message: '', consent: false });
+        setFormData({ email: '', message: '', consent: false, honeypot: '' });
+        setErrors({});
+        trackEvent('form_submit_success', { source: 'contact_form' });
       } else {
         setSubmitStatus('error');
+        trackEvent('form_submit_error', { source: 'contact_form', status: response.status });
       }
     } catch (error) {
       setSubmitStatus('error');
+      trackEvent('form_submit_error', { source: 'contact_form', status: 'network' });
     } finally {
       setIsSubmitting(false);
     }
@@ -68,6 +100,7 @@ const Contact = () => {
                 href={`mailto:${personalInfo.email}?subject=Contact%20portfolio%20-%20Projet`}
                 className="contact__cta-btn"
                 aria-label="Envoyer un email pour travailler ensemble"
+                onClick={() => trackEvent('cta_email_click', { location: 'contact_header' })}
               >
                 Écrire un email
               </a>
@@ -147,7 +180,21 @@ const Contact = () => {
 
           {/* Formulaire de contact */}
           <div className="contact__form-wrapper">
-            <form className="contact__form" id="contact-form" onSubmit={handleSubmit}>
+            <form className="contact__form" id="contact-form" onSubmit={handleSubmit} noValidate>
+              {/* Honeypot anti-spam */}
+              <div className="contact__honeypot" aria-hidden="true">
+                <label htmlFor="website">Ne pas remplir ce champ</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="contact__form-group">
                 <label htmlFor="email">Votre adresse email *</label>
                 <input
@@ -158,7 +205,9 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="votre@email.com"
                   required
+                  aria-invalid={Boolean(errors.email)}
                 />
+                {errors.email && <p className="contact__field-error">{errors.email}</p>}
               </div>
 
               <div className="contact__form-group">
@@ -171,7 +220,9 @@ const Contact = () => {
                   placeholder="Votre message..."
                   rows="6"
                   required
+                  aria-invalid={Boolean(errors.message)}
                 ></textarea>
+                {errors.message && <p className="contact__field-error">{errors.message}</p>}
               </div>
 
               <div className="contact__form-consent">
@@ -185,23 +236,36 @@ const Contact = () => {
                 />
                 <label htmlFor="consent">
                   J'ai lu et j'accepte la{' '}
-                  <a href="/rgpd" target="_blank" rel="noopener noreferrer">
+                  <a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer">
                     politique de confidentialité
                   </a>
                 </label>
               </div>
+              {errors.consent && <p className="contact__field-error">{errors.consent}</p>}
 
               {submitStatus === 'success' && (
-                <div className="contact__message contact__message--success">
+                <div className="contact__message contact__message--success" role="status" aria-live="polite">
                   <i className="fas fa-check-circle"></i>
                   Merci ! Votre message a été envoyé avec succès.
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="contact__message contact__message--error">
-                  <i className="fas fa-exclamation-circle"></i>
-                  Une erreur est survenue. Veuillez réessayer.
+                <div className="contact__message contact__message--error" role="alert" aria-live="assertive">
+                  <div className="contact__message-row">
+                    <i className="fas fa-exclamation-circle"></i>
+                    <span>Une erreur est survenue. Veuillez réessayer.</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="contact__fallback"
+                    onClick={() => {
+                      trackEvent('cta_email_fallback', { source: 'contact_form' });
+                      window.location.href = `mailto:${personalInfo.email}?subject=Contact%20portfolio%20-%20Fallback&body=${encodeURIComponent(formData.message || '')}`;
+                    }}
+                  >
+                    Utiliser l'email direct
+                  </button>
                 </div>
               )}
 
