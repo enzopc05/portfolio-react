@@ -67,6 +67,12 @@
   display: block;
 }
 
+.header__nav-link:focus-visible {
+  outline: 3px solid var(--accent-color, #ffd54f);
+  outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
 .header__nav-link:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
@@ -98,6 +104,11 @@
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
+}
+
+.header__burger:focus-visible {
+  outline: 3px solid var(--accent-color, #ffd54f);
+  outline-offset: 4px;
 }
 
 .header__burger span {
