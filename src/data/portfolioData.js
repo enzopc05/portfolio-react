@@ -14,8 +14,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/enzo-pace-15811a266/",
   profileImage: "/images/profile.jpg",
   cvUrl: "/documents/CV.pdf",
-  bio: `Étudiant passionné en informatique, actuellement en ${3}ème année de Bachelor Informatique. 
-        Spécialisé dans le développement web et les applications.`,
+  bio: `Étudiant passionné en informatique, 3ème année de Bachelor. Spécialisé en développement web/fullstack. Objectif : poursuite en Master pour devenir Chef de Projet IT.`,
 };
 
 // ========================================
@@ -56,7 +55,7 @@ export const projects = [
     year: 2025,
     yearOfStudy: 2,
     technologies: ["Java", "JavaFX", "SQL"],
-    image: "/images/projects/ghosttrack.jpg",
+    image: "/images/projects/ghosttrack.png",
     shortDescription: "Logiciel de ticketing sur le thème des trains",
     fullDescription:
       "Application desktop complète pour gérer réservations, horaires et utilisateurs avec persistance SQL.",
@@ -76,8 +75,8 @@ export const projects = [
     category: "ecole",
     year: 2025,
     yearOfStudy: 2,
-    technologies: ["Python", "Django", "HTML", "CSS", "JavaScript", "SQL"],
-    image: "/images/projects/Logo_JO_d'été_-_Paris_2024.png",
+    technologies: ["Python", "Django", "JavaScript", "SQL"],
+    image: "/images/projects/projetecole3.png",
     shortDescription: "Système de billetterie pour les Jeux Olympiques",
     fullDescription:
       "Suite de 3 apps : admin web, achat mobile, et contrôle d’accès (QR codes/scan). Données et schémas fournis.",
@@ -102,7 +101,7 @@ export const projects = [
     year: 2025,
     yearOfStudy: 2,
     technologies: ["React", "Node.js", "Express", "MongoDB"],
-    image: "/images/projects/climbing-4514507_1280.jpg",
+    image: "/images/projects/projetecole4.png",
     shortDescription: "Gestion d'Équipements de Protection Individuelle",
     fullDescription:
       "Application web pour suivre les EPI (état, maintenance, affectation), alertes et API REST.",
@@ -145,7 +144,7 @@ export const projects = [
     category: "entreprise",
     year: 2024,
     yearOfStudy: 2,
-    technologies: ["C#", ".NET", "REST", "Amazon SP-API", "SQL Server"],
+    technologies: ["C#", ".NET", "Amazon SP-API", "REST"],
     image: "/images/projects/amazon-api.png",
     shortDescription: "Intégration SP-API pour échanges e-commerce.",
     fullDescription:
@@ -168,7 +167,7 @@ export const projects = [
     category: "entreprise",
     year: 2024,
     yearOfStudy: 2,
-    technologies: ["C#", ".NET", "REST", "SQL Server", "Git"],
+    technologies: ["C#", ".NET", "SQL Server", "REST"],
     image: "/images/projects/pom-api.png",
     shortDescription: "API de gestion commerciale (POM).",
     fullDescription:
@@ -214,8 +213,8 @@ export const projects = [
     category: "entreprise",
     year: 2025,
     yearOfStudy: 2,
-    technologies: ["C#", ".NET", "REST", "SQL Server", "Git"],
-    image: "/images/projects/pom-sag.png",
+    technologies: ["C#", ".NET", "SQL Server", "REST"],
+    image: "/images/projects/pom-api.png",
     shortDescription: "Module/variation SAG autour de POM.",
     fullDescription:
       "Évolution du socle POM pour périmètre SAG : documentation et schéma d’arborescence partagés.",
@@ -297,15 +296,7 @@ export const projects = [
     category: "ecole",
     year: 2025,
     yearOfStudy: 3,
-    technologies: [
-      "React",
-      "Vite",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT",
-      "Docker",
-    ],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     image: "/images/projects/nahb-cover.png",
     shortDescription:
       "Plateforme fullstack pour créer et jouer des histoires interactives (dont vous êtes le héros).",
@@ -340,15 +331,7 @@ export const projects = [
     category: "ecole",
     year: 2025,
     yearOfStudy: 3,
-    technologies: [
-      "Express",
-      "Prisma",
-      "PostgreSQL",
-      "JWT",
-      "Microservices",
-      "Docker",
-      "React",
-    ],
+    technologies: ["Microservices", "Express", "Prisma", "PostgreSQL", "Docker"],
     image: "/images/projects/deepsea-cover.png",
     shortDescription:
       "Plateforme microservices pour cataloguer des créatures abyssales et valider des observations par des experts.",
@@ -374,6 +357,78 @@ export const projects = [
         title: "README DeepSea (détails)",
         type: "markdown",
         url: "/documents/README%20(3).md",
+      },
+    ],
+  },
+  {
+    id: 13,
+    title: "DynamicsToXmlTranslator",
+    category: "entreprise",
+    year: 2025,
+    yearOfStudy: 3,
+    technologies: [".NET 8", "C#", "SQL Server", "XML"],
+    image: "/images/projects/dynamics-xml-translator.png",
+    shortDescription:
+      "Traducteur automatisé Dynamics 365 vers XML/TXT compatibles WINDEV/SPEED (5 entités).",
+    fullDescription:
+      "Console .NET 8 avec DI, services par entité, export XML/TXT (Articles, PO, RO, TO, Packing Slips), traitement UTF-8, mode Test/Production, export par lots et logs Serilog.",
+    features: [
+      "Export Articles/PO/RO/TO en XML + Packing Slips en 2 TXT",
+      "Exclusion automatique ART_STAT=3",
+      "Traitement UTF-8 avancé (caractères spéciaux)",
+      "Mode Test et Production avec marquage",
+      "Export par lots pour gros volumes",
+      "Logging rotatif avec Serilog",
+    ],
+    learnings: [
+      "Architecture .NET 8 modulaire (DI/services)",
+      "Mappage modèles Dynamics ↔ WINDEV/SPEED",
+      "Performances batch et IO fichiers",
+      "Observabilité via logs et statistiques",
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    documents: [
+      {
+        title: "README DynamicsToXmlTranslator",
+        type: "markdown",
+        url: "/documents/README%20(4).md",
+      },
+    ],
+  },
+  {
+    id: 14,
+    title: "API_BioR - Sync Dynamics → SQL Server",
+    category: "entreprise",
+    year: 2025,
+    yearOfStudy: 3,
+    technologies: [".NET 8", "C#", "SQL Server", "Azure AD", "OAuth2"],
+    image: "/images/projects/api-bior.png",
+    shortDescription:
+      "Synchronisation intelligente Dynamics 365 vers SQL Server (JSON_IN/OUT) avec confirmations automatiques.",
+    fullDescription:
+      "Outil .NET 8 orchestrant l'auth OAuth2 Azure AD, la sync des Articles/Orders vers JSON_IN, la traçabilité JSON_OUT, les confirmations automatiques (PO/RO/TO/Sales) et le lancement du translator.",
+    features: [
+      "Détection de changements via hash et clés métier",
+      "Gestion ACTIVE/DELETED + ajout automatique JSON_SENT",
+      "Confirmations Articles et 4 types de commandes",
+      "Traçabilité complète dans JSON_OUT",
+      "Lancement conditionnel de DynamicsToXmlTranslator",
+      "Configuration via appsettings.json",
+    ],
+    learnings: [
+      "Auth Azure AD / OAuth2",
+      "Intégration API Dynamics 365",
+      "Optimisations SQL Server et index",
+      "Orchestration de workflows et résilience",
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    documents: [
+      {
+        title: "README API_BioR",
+        type: "markdown",
+        url: "/documents/README%20(5).md",
       },
     ],
   },
@@ -431,13 +486,13 @@ export const skills = {
       { name: "Notion", level: 60, color: "#000000" },
       { name: "Postman", level: 70, color: "#FF6C37" },
 
-      // compétences transverses déjà présentes
+      // compétences transverses
       { name: "Git", level: 50, color: "#F1502F" },
       { name: "Réseau", level: 40, color: "#EA4335" },
       { name: "Cybersécurité", level: 40, color: "#EA4335" },
       { name: "Hébergement web", level: 60, color: "#EA4335" },
-      { name: "Méthodes agiles", level: 60, color: "#8E24AA" },
-      { name: "Gestion de projet", level: 80, color: "#8E24AA" },
+      { name: "Méthodes agiles", level: 80, color: "#8E24AA" },
+      { name: "Gestion de projet", level: 85, color: "#8E24AA" },
       { name: "Création de contenu", level: 80, color: "#F06292" },
       { name: "Excel", level: 60, color: "#26A69A" },
     ],
@@ -449,49 +504,22 @@ export const skills = {
 // ========================================
 export const timeline = [
   {
-    id: 1,
-    year: "2021 - 2023",
-    period: "Baccalauréat STI2D",
-    icon: "🎓",
+    id: 5,
+    year: "2025 - Aujourd'hui",
+    period: "Bachelor Développement Informatique",
+    icon: "📚",
     description:
-      "Formation au lycée avec spécialisation en Sciences et Technologies de l'Industrie et du Développement Durable",
+      "Formation en Bachelor Développement Informatique à Sup de Vinci – Campus Paris La Défense (alternance).",
     achievements: [
-      "Obtention du Baccalauréat STI2D",
-      "Découverte de la programmation",
-      "Premiers projets techniques",
-      "Développement de la logique algorithmique",
+      "Développement Full-Stack : front, back, API ; HTML/CSS/JS (niveau avancé).", // ref
+      "Frameworks & environnements : React / Angular / Node.js ; PHP (Symfony/Laravel).", // ref
+      "Mobile : Kotlin (Android) et Swift (iOS).", // ref
+      "Bases de données : exploitation et connexion performante.", // ref
+      "Versioning & collaboration : GitHub / GitLab, projets en équipe.", // ref
+      "Méthodes agiles (Scrum), gestion de projet et pitch des livrables.", // ref
     ],
-    color: "#4cadad",
-  },
-  {
-    id: 2,
-    year: "2023 - 2024",
-    period: "RE/MAX France",
-    icon: "💼",
-    description: "Assistant projet IT en alternance chez RE/MAX France",
-    achievements: [
-      "Support IT pour le réseau de franchises",
-      "Gestion des flux XML entre plateformes",
-      "Analyse et correction de bugs sur le CRM",
-      "Travail en équipe dans un environnement dynamique",
-    ],
-    color: "#e24a68",
-  },
-  {
-    id: 3,
-    year: "2023 - 2025",
-    period: "BTS SIO SLAM",
-    icon: "🎓",
-    description:
-      "Formation en Services Informatiques aux Organisations - Spécialité Solutions Logicielles et Applications Métiers",
-    achievements: [
-      "Développement web (HTML/CSS/JS/PHP/React)",
-      "Programmation orientée objet (Java, C#, Python)",
-      "Gestion de bases de données SQL",
-      "Gestion de projet Agile",
-      "Réalisation de nombreux projets scolaires",
-    ],
-    color: "#b67332",
+    color: "#805c0aff",
+    isCurrent: true,
   },
   {
     id: 4,
@@ -511,22 +539,49 @@ export const timeline = [
     isCurrent: true,
   },
   {
-    id: 5,
-    year: "2025 - Aujourd'hui",
-    period: "Bachelor Développement Informatique",
-    icon: "📚",
+    id: 3,
+    year: "2023 - 2025",
+    period: "BTS SIO SLAM",
+    icon: "🎓",
     description:
-      "Formation en Bachelor Développement Informatique à Sup de Vinci – Campus Paris La Défense (alternance).",
+      "Formation en Services Informatiques aux Organisations - Spécialité Solutions Logicielles et Applications Métiers",
     achievements: [
-      "Développement Full-Stack : front, back, API ; HTML/CSS/JS (niveau avancé).", // ref
-      "Frameworks & environnements : React / Angular / Node.js ; PHP (Symfony/Laravel).", // ref
-      "Mobile : Kotlin (Android) et Swift (iOS).", // ref
-      "Bases de données : exploitation et connexion performante.", // ref
-      "Versioning & collaboration : GitHub / GitLab, projets en équipe.", // ref
-      "Méthodes agiles (Scrum), gestion de projet et pitch des livrables.", // ref
+      "Développement web (HTML/CSS/JS/PHP/React)",
+      "Programmation orientée objet (Java, C#, Python)",
+      "Gestion de bases de données SQL",
+      "Gestion de projet Agile",
+      "Réalisation de nombreux projets scolaires",
     ],
-    color: "#805c0aff",
-    isCurrent: true,
+    color: "#b67332",
+  },
+  {
+    id: 2,
+    year: "2023 - 2024",
+    period: "RE/MAX France",
+    icon: "💼",
+    description: "Assistant projet IT en alternance chez RE/MAX France",
+    achievements: [
+      "Support IT pour le réseau de franchises",
+      "Gestion des flux XML entre plateformes",
+      "Analyse et correction de bugs sur le CRM",
+      "Travail en équipe dans un environnement dynamique",
+    ],
+    color: "#e24a68",
+  },
+  {
+    id: 1,
+    year: "2021 - 2023",
+    period: "Baccalauréat STI2D",
+    icon: "🎓",
+    description:
+      "Formation au lycée avec spécialisation en Sciences et Technologies de l'Industrie et du Développement Durable",
+    achievements: [
+      "Obtention du Baccalauréat STI2D",
+      "Découverte de la programmation",
+      "Premiers projets techniques",
+      "Développement de la logique algorithmique",
+    ],
+    color: "#4cadad",
   },
 ];
 

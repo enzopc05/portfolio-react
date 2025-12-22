@@ -2,8 +2,8 @@
 [data-theme="light"] {
   --bg-color: #fff8e7;
   --bg-secondary: #faf7f2;
-  --text-color: #333;
-  --text-secondary: #555;
+  --text-color: #2c2c2c;
+  --text-secondary: #444;
   --primary-color: #daab3a; /* Jaune doré soleil */
   --secondary-color: #b67332; /* Marron clair */
   --accent-color: #f4a460;
@@ -20,11 +20,11 @@
 [data-theme="dark"] {
   --bg-color: #1a1a2e;
   --bg-secondary: #16213e;
-  --text-color: #eee;
-  --text-secondary: #ccc;
-  --primary-color: #4a5568; /* Gris bleuté nuit */
-  --secondary-color: #6c7a89;
-  --accent-color: #a8b2c1;
+  --text-color: #f0f0f0;
+  --text-secondary: #d4d4d4;
+  --primary-color: #6fa3d9; /* Bleu clair nuit (meilleur contraste) */
+  --secondary-color: #9db8d1;
+  --accent-color: #b3c9e0;
   --border-color: #2d3748;
   --shadow: rgba(0, 0, 0, 0.5);
   --card-bg: #0f3460;

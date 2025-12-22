@@ -28,9 +28,24 @@ const About = () => {
               et <strong>SQL</strong>.
             </p>
             <p className="about__description">
-              Mon objectif est de devenir un développeur polyvalent capable de créer 
-              des solutions innovantes et de m'adapter rapidement aux nouvelles technologies.
+              Je vise une <strong>poursuite en Master</strong> pour évoluer vers un rôle de 
+              <strong> Chef de Projet IT</strong>, combinant expertise technique et leadership.
             </p>
+
+            <div className="about__objective">
+              <h3 className="about__objective-title">Mon Objectif</h3>
+              <div className="about__objective-content">
+                <p>
+                  <strong>Devenir Chef de Projet IT</strong> — Poursuivre en <strong>Master</strong> pour acquérir une vision holistique des projets IT :
+                </p>
+                <ul className="about__objective-list">
+                  <li>Gestion de projets (Agile, Scrum, planning)</li>
+                  <li>Leadership et pilotage d'équipes</li>
+                  <li>Analyse des risques et gestion budgétaire</li>
+                  <li>Alignement stratégique métier-IT</li>
+                </ul>
+              </div>
+            </div>
 
             <div className="about__stats">
               <div className="about__stat">
