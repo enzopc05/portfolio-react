@@ -441,17 +441,17 @@ export const skills = {
   webDev: {
     category: "Développement Web",
     items: [
-      // existants conservés
+      // existants conservés (couleurs officielles)
       { name: "HTML", level: 90, color: "#E34F26" },
       { name: "CSS", level: 85, color: "#264DE4" },
       { name: "React", level: 75, color: "#61DAFB" },
       { name: "JavaScript", level: 80, color: "#F0DB4F" },
 
-      // depuis skills-data + ton HTML
-      { name: "PHP", level: 80, color: "#4285F4" },
-      { name: "XML", level: 80, color: "#4285F4" },
-      { name: "API Rest", level: 60, color: "#4285F4" },
-      { name: "CMS", level: 60, color: "#4285F4" },
+      // depuis skills-data + ton HTML (couleurs distinctes et cohérentes)
+      { name: "PHP", level: 80, color: "#777BB4" },
+      { name: "XML", level: 80, color: "#0085C3" },
+      { name: "API Rest", level: 60, color: "#6C63FF" },
+      { name: "CMS", level: 60, color: "#FF6B6B" },
     ],
   },
 
@@ -470,27 +470,31 @@ export const skills = {
   database: {
     category: "Bases de données",
     items: [
-      { name: "SQL", level: 100, color: "#34A853" },
-      { name: "MySQL", level: 60, color: "#4479A1" },
+      { name: "SQL", level: 80, color: "#F29111" },
+      { name: "MySQL", level: 60, color: "#00758F" },
     ],
   },
 
   tools: {
     category: "Outils & Méthodes",
     items: [
-      // outils de ton HTML
+      // IDE & Éditeurs
       { name: "VS Code", level: 80, color: "#007ACC" },
-      { name: "IntelliJ IDEA", level: 60, color: "#000000" },
-      { name: "WAMP", level: 60, color: "#A64D79" },
-      { name: "GitHub", level: 70, color: "#181717" },
-      { name: "Notion", level: 60, color: "#000000" },
+      { name: "IntelliJ IDEA", level: 60, color: "#0A7EBB" },
       { name: "Postman", level: 70, color: "#FF6C37" },
 
-      // compétences transverses
+      // Collaboration & Versioning
+      { name: "GitHub", level: 70, color: "#181717" },
       { name: "Git", level: 50, color: "#F1502F" },
-      { name: "Réseau", level: 40, color: "#EA4335" },
-      { name: "Cybersécurité", level: 40, color: "#EA4335" },
-      { name: "Hébergement web", level: 60, color: "#EA4335" },
+      { name: "Notion", level: 60, color: "#0A7EBB" },
+      { name: "WAMP", level: 60, color: "#A64D79" },
+
+      // Infrastructure & Sécurité (couleurs rouges cohérentes)
+      { name: "Réseau", level: 40, color: "#FF6B6B" },
+      { name: "Cybersécurité", level: 40, color: "#FF6B6B" },
+      { name: "Hébergement web", level: 60, color: "#FF6B6B" },
+
+      // Compétences transverses
       { name: "Méthodes agiles", level: 80, color: "#8E24AA" },
       { name: "Gestion de projet", level: 85, color: "#8E24AA" },
       { name: "Création de contenu", level: 80, color: "#F06292" },
