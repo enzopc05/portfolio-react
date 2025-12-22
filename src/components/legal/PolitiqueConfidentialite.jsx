@@ -6,7 +6,7 @@ const PolitiqueConfidentialite = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="legal-page">
+    <div className="legal-page" id="privacy">
       <div className="legal-page__container">
         <h1 className="legal-page__title">Politique de Confidentialité</h1>
         <p className="legal-page__update">Dernière mise à jour : {currentYear}</p>
@@ -38,7 +38,18 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>3. Finalités du traitement</h2>
+          <h2>3. Analytics sans cookie</h2>
+          <p>
+            Le site peut charger une mesure d'audience respectueuse de la vie privée (Plausible ou Umami).
+            Ces solutions sont configurées en mode sans cookie et sans profilage publicitaire. Les
+            données collectées sont agrégées (pages vues, événements de clic anonymisés) et ne permettent
+            pas de vous identifier. Vous pouvez bloquer ce script via votre bloqueur ou en supprimant la
+            variable d'environnement correspondante côté site.
+          </p>
+        </section>
+
+        <section className="legal-block">
+          <h2>4. Finalités du traitement</h2>
           <p>Les données collectées sont utilisées exclusivement pour :</p>
           <ul>
             <li>Répondre à vos demandes d'information</li>
@@ -47,7 +58,7 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>4. Base légale du traitement</h2>
+          <h2>5. Base légale du traitement</h2>
           <p>Le traitement de vos données personnelles est fondé sur :</p>
           <ul>
             <li>Votre consentement explicite lors de la soumission du formulaire</li>
@@ -56,7 +67,7 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>5. Destinataires des données</h2>
+          <h2>6. Destinataires des données</h2>
           <p>Vos données personnelles sont transmises à :</p>
           <ul>
             <li>
@@ -71,10 +82,14 @@ const PolitiqueConfidentialite = () => {
           <p>
             Aucune donnée n'est vendue, louée ou partagée avec des tiers à des fins commerciales.
           </p>
+          <p>
+            Formspree agit en tant que sous-traitant. Vous pouvez consulter leur politique de confidentialité
+            et leur DPA (Data Processing Addendum) sur leur site officiel.
+          </p>
         </section>
 
         <section className="legal-block">
-          <h2>6. Durée de conservation</h2>
+          <h2>7. Durée de conservation</h2>
           <p>Vos données personnelles sont conservées pour une durée de :</p>
           <ul>
             <li>1 an après le dernier échange relatif à votre demande</li>
@@ -82,7 +97,7 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>7. Transfert de données hors UE</h2>
+          <h2>8. Transfert de données hors UE</h2>
           <p>
             Les données collectées via le formulaire de contact peuvent être stockées sur des
             serveurs situés hors de l'Union Européenne (via Formspree). Ces transferts sont
@@ -91,7 +106,7 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>8. Vos droits</h2>
+          <h2>9. Vos droits</h2>
           <p>
             Conformément au RGPD, vous disposez des droits suivants concernant vos données
             personnelles :
@@ -109,10 +124,14 @@ const PolitiqueConfidentialite = () => {
             Pour exercer ces droits, contactez-moi à{' '}
             <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>.
           </p>
+          <p>
+            Vous pouvez aussi demander l'export ou la suppression des événements d'audience associés à votre
+            navigation si la mesure d'audience est activée. Toute demande sera traitée sous 30 jours.
+          </p>
         </section>
 
         <section className="legal-block">
-          <h2>9. Cookies et technologies similaires</h2>
+          <h2>10. Cookies et technologies similaires</h2>
           <p>Ce site utilise uniquement :</p>
           <ul>
             <li>Un cookie de préférence pour mémoriser votre choix de thème (mode jour/nuit)</li>
@@ -121,7 +140,7 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>10. Sécurité des données</h2>
+          <h2>11. Sécurité des données</h2>
           <p>
             Des mesures de sécurité techniques et organisationnelles sont mises en place pour
             protéger vos données contre tout accès non autorisé, modification, divulgation ou
@@ -130,7 +149,7 @@ const PolitiqueConfidentialite = () => {
         </section>
 
         <section className="legal-block">
-          <h2>11. Droit de réclamation</h2>
+          <h2>12. Droit de réclamation</h2>
           <p>
             Si vous estimez que le traitement de vos données personnelles n'est pas conforme à la
             réglementation, vous pouvez déposer une réclamation auprès de la Commission Nationale
