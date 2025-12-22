@@ -61,6 +61,29 @@ const Contact = () => {
       <div className="contact__container">
         <div className="contact__header">
           <h2 className="contact__title">Contactez-moi</h2>
+          <p className="contact__cta">
+            <strong>Travaillons ensemble</strong> — Discutons de votre projet ou de votre besoin.
+            <span className="contact__cta-actions">
+              <a
+                href={`mailto:${personalInfo.email}?subject=Contact%20portfolio%20-%20Projet`}
+                className="contact__cta-btn"
+                aria-label="Envoyer un email pour travailler ensemble"
+              >
+                Écrire un email
+              </a>
+              <a
+                href="#contact-form"
+                className="contact__cta-link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('contact-form');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                - Ou utiliser le formulaire
+              </a>
+            </span>
+          </p>
           <p className="contact__subtitle">
             Une question ? Un projet ? N'hésitez pas à me contacter !
           </p>
@@ -124,7 +147,7 @@ const Contact = () => {
 
           {/* Formulaire de contact */}
           <div className="contact__form-wrapper">
-            <form className="contact__form" onSubmit={handleSubmit}>
+            <form className="contact__form" id="contact-form" onSubmit={handleSubmit}>
               <div className="contact__form-group">
                 <label htmlFor="email">Votre adresse email *</label>
                 <input
