@@ -1,7 +1,12 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
-export const useFilter = (items, filterFunction) => {
-  const [filters, setFilters] = useState({});
+export const useFilter = (items, filterFunction, initialFilters = {}) => {
+  const [filters, setFilters] = useState(initialFilters || {});
+
+  useEffect(() => {
+    // When initialFilters change from outside (e.g., URL params), sync them
+    setFilters((prev) => ({ ...prev, ...initialFilters }));
+  }, [initialFilters]);
 
   const filteredItems = useMemo(() => {
     return items.filter((item) => filterFunction(item, filters));
@@ -23,5 +28,6 @@ export const useFilter = (items, filterFunction) => {
     filters,
     updateFilter,
     resetFilters,
+    setFilters,
   };
 };
