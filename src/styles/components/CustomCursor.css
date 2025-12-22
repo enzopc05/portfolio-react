@@ -2,8 +2,8 @@
    CURSEUR PERSONNALISÉ
    ========================================== */
 
-/* Cacher le curseur par défaut */
-* {
+/* Cacher le curseur natif uniquement quand le custom cursor est actif */
+body.custom-cursor-enabled * {
   cursor: none !important;
 }
 
@@ -17,7 +17,7 @@
   border: 2px solid var(--primary-color);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 11000;
   transition: all 0.3s ease;
   mix-blend-mode: difference;
   opacity: 0.8;
@@ -42,7 +42,7 @@
   background: var(--primary-color);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 10000;
+  z-index: 11001;
   box-shadow: 0 0 10px var(--primary-color);
 }
 

@@ -289,6 +289,94 @@ export const projects = [
       },
     ],
   },
+
+  // --- Nouveaux projets (cours) ---
+  {
+    id: 11,
+    title: "NAHB - Not Another Hero's Book",
+    category: "ecole",
+    year: 2025,
+    yearOfStudy: 3,
+    technologies: [
+      "React",
+      "Vite",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Docker",
+    ],
+    image: "/images/projects/nahb-cover.png",
+    shortDescription:
+      "Plateforme fullstack pour créer et jouer des histoires interactives (dont vous êtes le héros).",
+    fullDescription:
+      "Les auteurs conçoivent des histoires arborescentes, les lecteurs jouent en faisant des choix, et les admins modèrent la plateforme avec stats et rôles.",
+    features: [
+      "Auth JWT avec rôles (Reader, Author, Admin)",
+      "CRUD complet histoires/pages/choix avec fins nommées",
+      "Stats de parcours et collection de fins",
+      "Upload d'images, filtrage et recherche",
+      "Docker Compose prêt pour backend/frontend/DB",
+    ],
+    learnings: [
+      "Conception fullstack modulaire",
+      "Sécurisation JWT et rôles",
+      "Arborescences narratives et stats de parcours",
+      "CI locale via Docker Compose",
+    ],
+    githubUrl: "https://github.com/enzo-supdev/Enzo_Rayane_NAHB",
+    demoUrl: null,
+    documents: [
+      {
+        title: "README NAHB (détails)",
+        type: "markdown",
+        url: "/documents/README%20(2).md",
+      },
+    ],
+  },
+  {
+    id: 12,
+    title: "DeepSea Archives",
+    category: "ecole",
+    year: 2025,
+    yearOfStudy: 3,
+    technologies: [
+      "Express",
+      "Prisma",
+      "PostgreSQL",
+      "JWT",
+      "Microservices",
+      "Docker",
+      "React",
+    ],
+    image: "/images/projects/deepsea-cover.png",
+    shortDescription:
+      "Plateforme microservices pour cataloguer des créatures abyssales et valider des observations par des experts.",
+    fullDescription:
+      "Trois services (auth, observation, taxonomy) orchestrent l'authentification, la modération, la validation et la classification taxonomique avec statistiques globales.",
+    features: [
+      "3 microservices indépendants (auth, observation, taxonomy)",
+      "Soft delete et historisation complète des actions",
+      "Validation par rôles USER/EXPERT/ADMIN",
+      "Prisma + PostgreSQL multi-instances",
+      "Docker Compose et scripts de migration",
+    ],
+    learnings: [
+      "Architecture microservices Express",
+      "Prisma sur bases multiples",
+      "Gestion fine des rôles et modération",
+      "Observabilité et statistiques métier",
+    ],
+    githubUrl: "https://github.com/enzo-supdev/Enzo_Rayane_DeepSea",
+    demoUrl: null,
+    documents: [
+      {
+        title: "README DeepSea (détails)",
+        type: "markdown",
+        url: "/documents/README%20(3).md",
+      },
+    ],
+  },
 ];
 
 // ========================================

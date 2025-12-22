@@ -8,6 +8,12 @@ const CustomCursor = () => {
   const positionRef = useRef({ x: 0, y: 0 });
   const delayedPositionRef = useRef({ x: 0, y: 0 });
 
+  // Activer/désactiver la classe qui masque le curseur natif uniquement quand le composant est monté
+  useEffect(() => {
+    document.body.classList.add('custom-cursor-enabled');
+    return () => document.body.classList.remove('custom-cursor-enabled');
+  }, []);
+
   useEffect(() => {
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
