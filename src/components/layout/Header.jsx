@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
 import ThemeToggle from './ThemeToggle';
@@ -9,6 +10,8 @@ const Header = () => {
   const { theme } = useTheme();
   const scrolled = useScrollPosition();
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     { id: 'accueil', label: 'Accueil', href: '#accueil' },
@@ -22,10 +25,19 @@ const Header = () => {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMenuOpen(false);
-    
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const scroll = () => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/', { replace: false });
+      setTimeout(scroll, 120);
+    } else {
+      scroll();
     }
   };
 
