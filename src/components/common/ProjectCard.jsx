@@ -3,9 +3,21 @@ import '../../styles/components/ProjectCard.css';
 
 const ProjectCard = ({ project, onClick }) => {
   return (
-    <article className="project-card" onClick={() => onClick(project)}>
+    <article
+      className="project-card"
+      onClick={() => onClick(project)}
+      role="button"
+      tabIndex={0}
+      aria-label={`Ouvrir les détails du projet ${project.title}`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick(project);
+        }
+      }}
+    >
       <div className="project-card__image">
-        <img src={project.image} alt={project.title} />
+        <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
         <div className="project-card__overlay">
           <span className="project-card__view">Voir les détails</span>
         </div>

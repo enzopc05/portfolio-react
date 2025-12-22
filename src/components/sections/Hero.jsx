@@ -42,6 +42,13 @@ const Hero = () => {
               >
                 Voir mes projets
               </button>
+              <button
+                className="hero__btn hero__btn--accent"
+                onClick={() => scrollToSection('contact')}
+                aria-label="Travaillons ensemble - Aller à la section contact"
+              >
+                Travaillons ensemble
+              </button>
               <a 
                 href={personalInfo.cvUrl}
                 className="hero__btn hero__btn--secondary"
@@ -93,6 +100,8 @@ const Hero = () => {
                 src={profileImage}
                 alt={personalInfo.name}
                 className="hero__photo"
+                loading="lazy"
+                decoding="async"
                 style={{ position: 'relative', zIndex: 2 }}
               />
               

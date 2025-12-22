@@ -1,12 +1,64 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../styles/components/ProjectModal.css';
 
 const ProjectModal = ({ project, onClose }) => {
+  const dialogRef = useRef(null);
+  const lastFocusedRef = useRef(null);
+
+  useEffect(() => {
+    if (!project) return; // Guard when modal is not open
+
+    lastFocusedRef.current = document.activeElement;
+    const dialog = dialogRef.current;
+    if (dialog) {
+      const toFocus = dialog.querySelector('.modal__close') || dialog;
+      toFocus.focus();
+    }
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+      }
+      if (e.key === 'Tab') {
+        const focusable = dialog.querySelectorAll(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1")]'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      if (lastFocusedRef.current && lastFocusedRef.current.focus) {
+        lastFocusedRef.current.focus();
+      }
+    };
+  }, [onClose, project]);
+
   if (!project) return null;
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        onClick={(e) => e.stopPropagation()}
+        ref={dialogRef}
+        tabIndex={-1}
+      >
         <button className="modal__close" onClick={onClose} aria-label="Fermer">
           ✕
         </button>
@@ -17,9 +69,11 @@ const ProjectModal = ({ project, onClose }) => {
             src={project.image} 
             alt={project.title}
             className="modal__image"
+            loading="lazy"
+            decoding="async"
           />
           <div className="modal__header-overlay">
-            <h2 className="modal__title">{project.title}</h2>
+            <h2 className="modal__title" id="modal-title">{project.title}</h2>
             <span className="modal__year">{project.year}</span>
           </div>
         </div>
