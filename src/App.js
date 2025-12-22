@@ -9,6 +9,7 @@ import Skills from "./components/sections/Skills";
 import About from "./components/sections/About";
 import Timeline from "./components/sections/Timeline";
 import Contact from "./components/sections/Contact";
+import Meta from "./components/common/Meta";
 import MentionsLegales from "./components/legal/MentionsLegales";
 import PolitiqueConfidentialite from "./components/legal/PolitiqueConfidentialite";
 
@@ -40,6 +41,11 @@ const HomePage = () => {
 
   return (
     <>
+      <Meta
+        title="Portfolio – Enzo Pace | Développeur"
+        description="Découvrez mes projets (web, .NET, data), compétences, et prenons contact pour travailler ensemble."
+        image="/assets/images/og-default.png"
+      />
       <Hero />
       <About />
       <Projects />
