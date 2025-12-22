@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { personalInfo } from '../../data/portfolioData';
+import { trackEvent } from '../../utils/analytics';
 import '../../styles/components/Hero.css';
 import '../../styles/components/PhotoEffects.css';
 
@@ -38,13 +39,19 @@ const Hero = () => {
             <div className="hero__buttons">
               <button 
                 className="hero__btn hero__btn--primary"
-                onClick={() => scrollToSection('projets')}
+                onClick={() => {
+                  trackEvent('cta_primary', { target: 'projets' });
+                  scrollToSection('projets');
+                }}
               >
                 Voir mes projets
               </button>
               <button
                 className="hero__btn hero__btn--accent"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => {
+                  trackEvent('cta_secondary', { target: 'contact' });
+                  scrollToSection('contact');
+                }}
                 aria-label="Travaillons ensemble - Aller à la section contact"
               >
                 Travaillons ensemble
@@ -53,6 +60,7 @@ const Hero = () => {
                 href={personalInfo.cvUrl}
                 className="hero__btn hero__btn--secondary"
                 download
+                onClick={() => trackEvent('cta_download_cv')}
               >
                 Télécharger mon CV
               </a>

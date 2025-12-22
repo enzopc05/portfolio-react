@@ -5,13 +5,20 @@ import { useFilter } from '../../hooks/useFilter';
 import ProjectCard from '../common/ProjectCard';
 import TechDropdown from '../common/TechDropdown';
 import ProjectModal from '../common/ProjectModal';
+import { trackEvent } from '../../utils/analytics';
 import '../../styles/components/Projects.css';
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [showAll, setShowAll] = useState(false);
-
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const projectParam = useMemo(() => searchParams.get('project'), [searchParams]);
+
+  const [selectedProject, setSelectedProject] = useState(() => {
+    if (!projectParam) return null;
+    const found = projects.find((p) => p.id === Number(projectParam));
+    return found || null;
+  });
+  const [showAll, setShowAll] = useState(false);
 
   // Parse URL params into initial filters
   const initialFilters = useMemo(() => {
@@ -26,6 +33,15 @@ const Projects = () => {
       category: categoryParam || '', // 'ecole', 'entreprise', or ''
     };
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!projectParam) {
+      setSelectedProject(null);
+      return;
+    }
+    const found = projects.find((p) => p.id === Number(projectParam));
+    setSelectedProject(found || null);
+  }, [projectParam]);
 
   const filterFunction = (project, filters) => {
     // Category filter
@@ -63,8 +79,9 @@ const Projects = () => {
     if (filters.year) params.set('year', String(filters.year));
     if (filters.q) params.set('q', String(filters.q));
     if (filters.category) params.set('category', String(filters.category));
+    if (selectedProject) params.set('project', String(selectedProject.id));
     setSearchParams(params, { replace: true });
-  }, [filters, setSearchParams]);
+  }, [filters, selectedProject, setSearchParams]);
 
   const allTechnologies = [...new Set(projects.flatMap(p => p.technologies))].sort();
   const allYears = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
@@ -79,6 +96,12 @@ const Projects = () => {
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
+    trackEvent('project_open', {
+      id: project.id,
+      title: project.title,
+      year: project.year,
+      category: project.category,
+    });
   };
 
   const closeModal = () => {
