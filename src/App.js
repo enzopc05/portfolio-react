@@ -26,6 +26,7 @@ import CustomCursor from "./components/CustomCursor";
 import ThemeTransition from "./components/ThemeTransition.jsx";
 import FloatingShapes from "./components/FloatingShapes";
 import ProjectsGrid from "./components/ProjectsGrid";
+import SchemaLD from "./components/common/SchemaLD";
 
 // Hooks personnalisés pour les animations
 import { useScrollAnimations } from "./hooks/useScrollAnimations";
@@ -46,6 +47,7 @@ const HomePage = () => {
         description="Découvrez mes projets (web, .NET, data), compétences, et prenons contact pour travailler ensemble."
         image="/assets/images/og-default.png"
       />
+      <SchemaLD />
       <Hero />
       <About />
       <Projects />
@@ -92,6 +94,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App">
+        <a className="skip-link" href="#main-content">Passer au contenu principal</a>
         {/* Effets visuels d'arrière-plan (ordre important pour le z-index) */}
         <AnimatedBackground />
         <FloatingShapes />
@@ -103,7 +106,7 @@ function App() {
 
         {/* Structure principale du site */}
         <Header />
-        <main>
+        <main id="main-content">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
