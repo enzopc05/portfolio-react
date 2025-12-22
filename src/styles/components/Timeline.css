@@ -3,9 +3,9 @@
    ========================================== */
 
 .timeline-section {
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   background: var(--bg-secondary);
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .timeline-section__container {
@@ -17,7 +17,7 @@
 /* En-tête */
 .timeline-section__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .timeline-section__title {
@@ -66,7 +66,7 @@
 .timeline__item {
   display: flex;
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 /* Alternance gauche/droite */
@@ -114,7 +114,7 @@
 
 .timeline__card {
   background: var(--card-bg);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--border-color);
@@ -171,10 +171,10 @@
 
 /* Description */
 .timeline__description {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 /* Réalisations */
@@ -222,8 +222,8 @@
 .timeline-section__stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  margin-top: 5rem;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
 .timeline-stat {
