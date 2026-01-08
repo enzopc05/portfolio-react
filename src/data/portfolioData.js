@@ -8,7 +8,7 @@ export const personalInfo = {
   formation: "Bachelor Développement Informatique",
   school: "Sup de Vinci - Campus de La Défense",
   email: "enzopropace@gmail.com",
-  phone: "+33 6 16 25 49 14",
+  phone: "+33 6 16 25 ** **",
   location: "Saint Ouen l'Aumône, France",
   github: "https://github.com/enzopc05",
   linkedin: "https://www.linkedin.com/in/enzo-pace-15811a266/",

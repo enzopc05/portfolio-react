@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo } from '../../data/portfolioData';
 import { trackEvent } from '../../utils/analytics';
 import '../../styles/components/Contact.css';
@@ -234,12 +235,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor="consent">
-                  J'ai lu et j'accepte la{' '}
-                  <a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer">
-                    politique de confidentialité
-                  </a>
-                </label>
+<label htmlFor="consent">
+  J'ai lu et j'accepte la{' '}
+  <Link to="/politique-confidentialite">
+    politique de confidentialité
+  </Link>
+</label>
               </div>
               {errors.consent && <p className="contact__field-error">{errors.consent}</p>}
 
