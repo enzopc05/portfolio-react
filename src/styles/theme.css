@@ -1,63 +1,250 @@
-/* Variables pour le thème SOLEIL (mode jour) */
+/* ==========================================
+   IMPORT FONTS
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap');
+
+/* ==========================================
+   THÈME SOLEIL (mode jour)
+   ========================================== */
+
 [data-theme="light"] {
-  --bg-color: #fff8e7;
-  --bg-secondary: #faf7f2;
-  --text-color: #2c2c2c;
-  --text-secondary: #444;
-  --primary-color: #daab3a; /* Jaune doré soleil */
-  --secondary-color: #b67332; /* Marron clair */
-  --accent-color: #f4a460;
-  --border-color: #ddd;
-  --shadow: rgba(182, 115, 50, 0.2);
-  --card-bg: #ffffff;
-  --header-bg: rgba(218, 171, 58, 0.95);
+  --bg-color: #FAFAF7;
+  --bg-secondary: #F2EFE6;
+  --text-color: #1A1714;
+  --text-secondary: #6B6258;
+  --primary-color: #C8920A;
+  --secondary-color: #7A4F2A;
+  --accent-color: #E8AC47;
+  --border-color: #E5E0D5;
+  --shadow: rgba(120, 80, 20, 0.1);
+  --shadow-strong: rgba(120, 80, 20, 0.2);
+  --card-bg: #FFFFFF;
+  --header-bg: rgba(250, 250, 247, 0.92);
+  --header-border: rgba(200, 146, 10, 0.15);
+  --nav-text: #1A1714;
+  --input-bg: #F7F5EF;
+  --tag-bg: #F2EFE6;
 
-  /* Icône thème */
-  --theme-icon: "☀️";
+  /* Compatibilité */
+  --bg-primary: var(--bg-color);
 }
 
-/* Variables pour le thème LUNE (mode nuit) */
+/* ==========================================
+   THÈME LUNE (mode nuit)
+   ========================================== */
+
 [data-theme="dark"] {
-  --bg-color: #1a1a2e;
-  --bg-secondary: #16213e;
-  --text-color: #f0f0f0;
-  --text-secondary: #d4d4d4;
-  --primary-color: #6fa3d9; /* Bleu clair nuit (meilleur contraste) */
-  --secondary-color: #9db8d1;
-  --accent-color: #b3c9e0;
-  --border-color: #2d3748;
-  --shadow: rgba(0, 0, 0, 0.5);
-  --card-bg: #0f3460;
-  --header-bg: rgba(26, 26, 46, 0.95);
+  --bg-color: #08081C;
+  --bg-secondary: #0D0D26;
+  --text-color: #EFEDE8;
+  --text-secondary: #9B97A8;
+  --primary-color: #78B4E8;
+  --secondary-color: #5590C0;
+  --accent-color: #A0C8E8;
+  --border-color: #1E1E3C;
+  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow-strong: rgba(0, 0, 0, 0.8);
+  --card-bg: #111128;
+  --header-bg: rgba(8, 8, 28, 0.92);
+  --header-border: rgba(120, 180, 232, 0.12);
+  --nav-text: #EFEDE8;
+  --input-bg: #0D0D26;
+  --tag-bg: #1A1A35;
 
-  /* Icône thème */
-  --theme-icon: "🌙";
+  /* Compatibilité */
+  --bg-primary: var(--bg-color);
 }
 
-/* Styles globaux */
-* {
+/* ==========================================
+   RESET & BASE
+   ========================================== */
+
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', system-ui, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Transition fluide pour tous les éléments */
+/* Transition globale pour changement de thème */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
-/* Container général */
+/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
+}
+
+/* ==========================================
+   TYPOGRAPHIE GLOBALE
+   ========================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================
+   SCROLLBAR PERSONNALISÉE
+   ========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 100px;
+  border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* ==========================================
+   SECTION TITLE PATTERN (réutilisable)
+   ========================================== */
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.section-title--gradient {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   BOUTONS GLOBAUX
+   ========================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-strong);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   CARDS GLOBALES
+   ========================================== */
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px var(--shadow);
+  border-color: var(--primary-color);
+}
+
+/* ==========================================
+   ACCESSIBILITÉ
+   ========================================== */
+
+:where(a, button, input, select, textarea, [role="button"]):focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.75rem 1.25rem;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+  z-index: 9999;
+  transition: left 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  left: 16px;
+  top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
