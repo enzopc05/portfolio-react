@@ -3,25 +3,51 @@
 // ========================================
 export const personalInfo = {
   name: "Enzo Pace",
-  currentYear: 3, // ⚠️ MODIFIER CHAQUE ANNÉE (1, 2 ou 3)
-  startYear: 2025, // Année de début de votre Bachelor
+  currentYear: 3,
+  startYear: 2025,
   formation: "Bachelor Développement Informatique",
-  school: "Sup de Vinci - Campus de La Défense",
-  email: "enzopropace@gmail.com",
-  phone: "+33 6 16 25 ** **",
-  location: "Saint Ouen l'Aumône, France",
+  school: "Sup de Vinci — Campus Paris La Défense",
+  email: "enzopace05@gmail.com",
+  phone: "+33 6 16 25 49 14",
+  location: "Saint-Ouen-l'Aumône (95)",
   github: "https://github.com/enzopc05",
   linkedin: "https://www.linkedin.com/in/enzo-pace-15811a266/",
+  portfolio: "https://www.enzopc.com",
   profileImage: "/images/profile.jpg",
   cvUrl: "/documents/CV.pdf",
-  bio: `Étudiant passionné en informatique, 3ème année de Bachelor. Spécialisé en développement web/fullstack. Objectif : poursuite en Master pour devenir Chef de Projet IT.`,
+  bio: `Développeur fullstack en dernière année de Bachelor, actuellement en alternance chez Eurodislog. À la recherche d'une alternance de 24 mois à partir de septembre 2026 pour un BAC+5 Expert en Ingénierie Informatique (E3IN) à l'ESIEE-IT.`,
+
+  // Recherche d'alternance
+  seeking: {
+    type: "Alternance 24 mois",
+    startDate: "Septembre 2026",
+    formation: "BAC+5 Expert en Ingénierie Informatique et Innovation Numérique (E3IN)",
+    school: "ESIEE-IT — Pontoise",
+    rhythm: "1 mois entreprise / 1 mois formation",
+  },
+
+  // Langues
+  languages: [
+    { name: "Français", level: "Natif", code: "fr" },
+    { name: "Anglais", level: "B2 — Intermédiaire supérieur", code: "en" },
+    { name: "Espagnol", level: "B1 — Intermédiaire", code: "es" },
+  ],
+
+  // Certifications
+  certifications: ["MOOC RGPD — CNIL"],
+
+  // Centres d'intérêt
+  interests: {
+    cultural: ["Musique", "Voyages", "Photographie"],
+    sport: ["Basket-Ball", "Musculation"],
+  },
 };
 
 // ========================================
 // PROJETS
 // ========================================
 export const projects = [
-  // --- École (déjà présents, conservés/ajustés) ---
+  // --- École ---
   {
     id: 1,
     title: "Les4Fantastiques",
@@ -30,18 +56,17 @@ export const projects = [
     yearOfStudy: 2,
     technologies: ["HTML", "CSS", "JavaScript", "API Marvel"],
     image: "/images/projects/projetecole1.png",
-    shortDescription:
-      "Requête à l'API Marvel afin d'avoir des résultats visuels",
+    shortDescription: "Requête à l'API Marvel afin d'avoir des résultats visuels",
     fullDescription:
       "Projet d'équipe : interrogation de l'API Marvel pour afficher fiches perso, recherche et filtres avec UI responsive.",
     features: [
       "Intégration API Marvel",
       "Recherche en temps réel",
       "Interface responsive",
-      "Gestion d’équipe via Git",
+      "Gestion d'équipe via Git",
     ],
     learnings: [
-      "Consommation d’API externes",
+      "Consommation d'API externes",
       "Manipulation du DOM",
       "Workflow Git en équipe",
     ],
@@ -79,7 +104,7 @@ export const projects = [
     image: "/images/projects/projetecole3.png",
     shortDescription: "Système de billetterie pour les Jeux Olympiques",
     fullDescription:
-      "Suite de 3 apps : admin web, achat mobile, et contrôle d’accès (QR codes/scan). Données et schémas fournis.",
+      "Suite de 3 apps : admin web, achat mobile, et contrôle d'accès (QR codes/scan). Données et schémas fournis.",
     features: [
       "Back-office Django",
       "QR codes & scan",
@@ -115,8 +140,6 @@ export const projects = [
     githubUrl: "https://github.com/enzopc05/projet_gestEPI",
     demoUrl: null,
   },
-
-  // --- Entreprise / Projets issus de realisations.js ---
   {
     id: 5,
     title: "Macro EXCEL (Automation WMS)",
@@ -125,10 +148,9 @@ export const projects = [
     yearOfStudy: 2,
     technologies: ["VBA", "Excel"],
     image: "/images/projects/macro-excel.png",
-    shortDescription:
-      "Automatisations Excel pour la logistique (rapports/exports).",
+    shortDescription: "Automatisations Excel pour la logistique (rapports/exports).",
     fullDescription:
-      "Macros VBA pour accélérer traitements, contrôles et exports liés au WMS / traçabilité interne.",
+      "Macros VBA pour accélérer traitements, contrôles et exports liés au WMS / traçabilité interne chez Eurodislog.",
     features: [
       "Génération de rapports",
       "Contrôles automatiques",
@@ -148,7 +170,7 @@ export const projects = [
     image: "/images/projects/amazon-api.png",
     shortDescription: "Intégration SP-API pour échanges e-commerce.",
     fullDescription:
-      "Service .NET consommant la SP-API d’Amazon pour récupérer/mettre à jour données produits/commandes. Doc d’utilisation fournie (PDF).",
+      "Service .NET consommant la SP-API d'Amazon pour récupérer/mettre à jour données produits/commandes chez Eurodislog.",
     features: ["Auth clés/roles", "Récupération commandes", "Logs & retries"],
     learnings: [".NET Web API", "OAuth/Signatures", "Résilience prod"],
     githubUrl: null,
@@ -157,7 +179,7 @@ export const projects = [
       {
         title: "Documentation d'utilisation",
         type: "pdf",
-        url: "Portfolio/doc/amazon_doc.pdf", // source: modal4
+        url: "Portfolio/doc/amazon_doc.pdf",
       },
     ],
   },
@@ -171,17 +193,13 @@ export const projects = [
     image: "/images/projects/pom-api.png",
     shortDescription: "API de gestion commerciale (POM).",
     fullDescription:
-      "Développement d’une API REST pour orchestrer flux POM : schémas, BDD de test et conventions Git documentés.",
+      "Développement d'une API REST pour orchestrer flux POM : schémas, BDD de test et conventions Git documentés.",
     features: [
       "Endpoints REST",
       "BDD de test fournie",
-      "Convention Git d’équipe",
+      "Convention Git d'équipe",
     ],
-    learnings: [
-      "Conventions d’équipe",
-      "Design d’API",
-      "Tests / Environnements",
-    ],
+    learnings: ["Conventions d'équipe", "Design d'API", "Tests / Environnements"],
     githubUrl: null,
     demoUrl: null,
     documents: [
@@ -217,7 +235,7 @@ export const projects = [
     image: "/images/projects/pom-api.png",
     shortDescription: "Module/variation SAG autour de POM.",
     fullDescription:
-      "Évolution du socle POM pour périmètre SAG : documentation et schéma d’arborescence partagés.",
+      "Évolution du socle POM pour périmètre SAG : documentation et schéma d'arborescence partagés.",
     features: ["Endpoints dédiés", "Arborescence standardisée", "Docs projet"],
     learnings: ["Factorisation", "Versionning", "Livraison continue"],
     githubUrl: null,
@@ -245,7 +263,7 @@ export const projects = [
     image: "/images/projects/verif-traca.png",
     shortDescription: "Outil de contrôle des numéros de traçabilité.",
     fullDescription:
-      "Application interne pour vérifier la conformité/validité des numéros de traçabilité. README + procédure PDF.",
+      "Application interne Eurodislog pour vérifier la conformité/validité des numéros de traçabilité.",
     features: ["Vérifications métiers", "Exports", "Journalisation"],
     learnings: ["Conformité process", "Qualité de données", "UX interne"],
     githubUrl: null,
@@ -263,8 +281,6 @@ export const projects = [
       },
     ],
   },
-
-  // --- École (repéré dans realisations.js) ---
   {
     id: 10,
     title: "AlerTrain (maquette GhostTrack)",
@@ -275,7 +291,7 @@ export const projects = [
     image: "/images/projects/alertrain.png",
     shortDescription: "Maquette UI du projet AlerTrain.",
     fullDescription:
-      "Prototype visuel de l’interface utilisateur (flows d’écrans, composants).",
+      "Prototype visuel de l'interface utilisateur (flows d'écrans, composants).",
     features: ["Design composants", "Parcours utilisateur", "Export assets"],
     learnings: ["Systèmes de design", "Prototypage", "Hand-off"],
     githubUrl: "https://github.com/Jeeyrr/AlerTrain",
@@ -288,8 +304,6 @@ export const projects = [
       },
     ],
   },
-
-  // --- Nouveaux projets (cours) ---
   {
     id: 11,
     title: "NAHB - Not Another Hero's Book",
@@ -435,70 +449,56 @@ export const projects = [
 ];
 
 // ========================================
-// COMPÉTENCES (4 catégories + ajouts HTML)
+// COMPÉTENCES
 // ========================================
 export const skills = {
   webDev: {
     category: "Développement Web",
     items: [
-      // existants conservés (couleurs officielles)
-      { name: "HTML", level: 90, color: "#E34F26" },
-      { name: "CSS", level: 85, color: "#264DE4" },
-      { name: "React", level: 75, color: "#61DAFB" },
+      { name: "HTML5", level: 90, color: "#E34F26" },
+      { name: "CSS3", level: 85, color: "#264DE4" },
       { name: "JavaScript", level: 80, color: "#F0DB4F" },
-
-      // depuis skills-data + ton HTML (couleurs distinctes et cohérentes)
-      { name: "PHP", level: 80, color: "#777BB4" },
-      { name: "XML", level: 80, color: "#0085C3" },
-      { name: "API Rest", level: 60, color: "#6C63FF" },
-      { name: "CMS", level: 60, color: "#FF6B6B" },
+      { name: "React", level: 75, color: "#61DAFB" },
+      { name: "Node.js", level: 70, color: "#339933" },
+      { name: "API REST", level: 75, color: "#6C63FF" },
+      { name: "XML / JSON", level: 80, color: "#0085C3" },
+      { name: "PHP", level: 65, color: "#777BB4" },
     ],
   },
 
   programmation: {
     category: "Programmation",
     items: [
-      { name: "Python", level: 80, color: "#306998" },
-      { name: "Java", level: 80, color: "#FBBC05" },
-      { name: "C#", level: 70, color: "#239120" },
-      { name: "VBA", level: 80, color: "#FBBC05" },
-      { name: "VB6", level: 60, color: "#FBBC05" },
-      { name: "JavaFX", level: 60, color: "#FBBC05" },
+      { name: "C# / .NET", level: 80, color: "#239120" },
+      { name: "Python / Django", level: 75, color: "#306998" },
+      { name: "Java", level: 75, color: "#FBBC05" },
+      { name: "VBA / VB6", level: 80, color: "#B7472A" },
+      { name: "JWT / OAuth2", level: 70, color: "#6C63FF" },
+      { name: "Docker", level: 60, color: "#2496ED" },
     ],
   },
 
   database: {
     category: "Bases de données",
     items: [
-      { name: "SQL", level: 80, color: "#F29111" },
-      { name: "MySQL", level: 60, color: "#00758F" },
+      { name: "SQL Server", level: 80, color: "#CC2927" },
+      { name: "MySQL", level: 70, color: "#00758F" },
+      { name: "MongoDB", level: 65, color: "#47A248" },
+      { name: "PostgreSQL", level: 55, color: "#336791" },
     ],
   },
 
   tools: {
     category: "Outils & Méthodes",
     items: [
-      // IDE & Éditeurs
-      { name: "VS Code", level: 80, color: "#007ACC" },
-      { name: "IntelliJ IDEA", level: 60, color: "#0A7EBB" },
-      { name: "Postman", level: 70, color: "#FF6C37" },
-
-      // Collaboration & Versioning
-      { name: "GitHub", level: 70, color: "#181717" },
-      { name: "Git", level: 50, color: "#F1502F" },
-      { name: "Notion", level: 60, color: "#0A7EBB" },
-      { name: "WAMP", level: 60, color: "#A64D79" },
-
-      // Infrastructure & Sécurité (couleurs rouges cohérentes)
-      { name: "Réseau", level: 40, color: "#FF6B6B" },
-      { name: "Cybersécurité", level: 40, color: "#FF6B6B" },
-      { name: "Hébergement web", level: 60, color: "#FF6B6B" },
-
-      // Compétences transverses
-      { name: "Méthodes agiles", level: 80, color: "#8E24AA" },
+      { name: "Git / GitHub", level: 80, color: "#F1502F" },
+      { name: "Postman", level: 75, color: "#FF6C37" },
+      { name: "Docker", level: 60, color: "#2496ED" },
+      { name: "Méthodes Agile / Scrum", level: 80, color: "#8E24AA" },
       { name: "Gestion de projet", level: 85, color: "#8E24AA" },
-      { name: "Création de contenu", level: 80, color: "#F06292" },
-      { name: "Excel", level: 60, color: "#26A69A" },
+      { name: "VS Code / IntelliJ", level: 85, color: "#007ACC" },
+      { name: "Figma", level: 65, color: "#F06292" },
+      { name: "Excel / VBA", level: 80, color: "#26A69A" },
     ],
   },
 };
@@ -508,82 +508,100 @@ export const skills = {
 // ========================================
 export const timeline = [
   {
+    id: 6,
+    year: "09/2026 — 07/2028",
+    period: "BAC+5 E3IN — ESIEE-IT",
+    icon: "🎓",
+    description:
+      "Expert en Ingénierie Informatique et Innovation Numérique en alternance à l'ESIEE-IT (Pontoise). Rythme : 1 mois entreprise / 1 mois formation. À la recherche d'une entreprise d'accueil.",
+    achievements: [
+      "Ingénierie logicielle : C#, Java, DevOps, architecture des SI",
+      "Cloud, Docker et conteneurisation",
+      "Gestion de projets Agile / Scrum, conduite du changement",
+      "Management des SI et cybersécurité",
+      "Qualité logicielle et tests automatisés",
+    ],
+    color: "#C8920A",
+    isCurrent: false,
+    isUpcoming: true,
+  },
+  {
     id: 5,
-    year: "2025 - Aujourd'hui",
-    period: "Bachelor Développement Informatique",
+    year: "09/2025 — 07/2026",
+    period: "Bachelor Développement Informatique — Sup de Vinci",
     icon: "📚",
     description:
-      "Formation en Bachelor Développement Informatique à Sup de Vinci – Campus Paris La Défense (alternance).",
+      "Formation en Bachelor Développement Informatique (Bac+3) à Sup de Vinci – Campus Paris La Défense, en alternance chez Eurodislog.",
     achievements: [
-      "Développement Full-Stack : front, back, API ; HTML/CSS/JS (niveau avancé).", // ref
-      "Frameworks & environnements : React / Angular / Node.js ; PHP (Symfony/Laravel).", // ref
-      "Mobile : Kotlin (Android) et Swift (iOS).", // ref
-      "Bases de données : exploitation et connexion performante.", // ref
-      "Versioning & collaboration : GitHub / GitLab, projets en équipe.", // ref
-      "Méthodes agiles (Scrum), gestion de projet et pitch des livrables.", // ref
+      "Développement Full-Stack : front, back, API REST",
+      "Frameworks : React, Node.js, Express, Django",
+      "Architecture microservices et Docker Compose",
+      "Bases de données : SQL Server, MongoDB, PostgreSQL",
+      "Méthodes Agile, Scrum et gestion de projet",
     ],
-    color: "#805c0aff",
+    color: "#C8920A",
     isCurrent: true,
   },
   {
     id: 4,
-    year: "2024 - Aujourd'hui",
-    period: "Eurodislog",
+    year: "09/2024 — 08/2026",
+    period: "Eurodislog — Chargé de projet IT junior",
     icon: "🚀",
     description:
-      "Alternance en tant que développeur chez Eurodislog, entreprise spécialisée en logistique",
+      "Contrat d'apprentissage chez Eurodislog (Saint-Ouen-l'Aumône), entreprise spécialisée en logistique e-commerce.",
     achievements: [
-      "Développement d'API REST en ASP.NET Core",
+      "Évolution et maintenance d'applications internes (VB6)",
+      "Développement d'API REST en ASP.NET Core (C#)",
+      "Automatisation de processus via macros Excel (VBA)",
+      "Optimisation de logiciels métiers et intégration Dynamics 365",
       "Gestion de bases de données SQL Server",
-      "Authentification par clé API",
-      "Travail sur des solutions logistiques innovantes",
-      "Collaboration avec les équipes métier",
     ],
-    color: "#daab3a",
+    color: "#C8920A",
     isCurrent: true,
   },
   {
     id: 3,
-    year: "2023 - 2025",
-    period: "BTS SIO SLAM",
+    year: "09/2023 — 07/2025",
+    period: "BTS SIO SLAM — ESIEE-IT",
     icon: "🎓",
     description:
-      "Formation en Services Informatiques aux Organisations - Spécialité Solutions Logicielles et Applications Métiers",
+      "BTS Systèmes Informatiques aux Organisations – Option SLAM à l'ESIEE-IT (Pontoise), en alternance.",
     achievements: [
-      "Développement web (HTML/CSS/JS/PHP/React)",
-      "Programmation orientée objet (Java, C#, Python)",
-      "Gestion de bases de données SQL",
-      "Gestion de projet Agile",
-      "Réalisation de nombreux projets scolaires",
+      "Développement web et logiciel (POO, bases de données, SQL)",
+      "Administration réseau et cybersécurité de base",
+      "Gestion de projets IT en environnement professionnel",
+      "Réalisation de nombreux projets scolaires (Java, C#, Python, React)",
     ],
-    color: "#b67332",
+    color: "#7A4F2A",
   },
   {
     id: 2,
-    year: "2023 - 2024",
-    period: "RE/MAX France",
+    year: "08/2023 — 08/2024",
+    period: "RE/MAX France — Assistant chef de projet IT",
     icon: "💼",
-    description: "Assistant projet IT en alternance chez RE/MAX France",
+    description:
+      "Contrat d'apprentissage chez RE/MAX France (Rueil-Malmaison) en tant qu'assistant chef de projet IT.",
     achievements: [
-      "Support IT pour le réseau de franchises",
+      "Support informatique et accompagnement des franchises",
+      "Formation des utilisateurs au CRM et assistance quotidienne",
       "Gestion des flux XML entre plateformes",
-      "Analyse et correction de bugs sur le CRM",
-      "Travail en équipe dans un environnement dynamique",
+      "Gestion du ticketing et suivi des incidents",
+      "Analyse et qualification de bugs applicatifs",
     ],
-    color: "#e24a68",
+    color: "#5590C0",
   },
   {
     id: 1,
-    year: "2021 - 2023",
-    period: "Baccalauréat STI2D",
-    icon: "🎓",
+    year: "07/2023",
+    period: "Baccalauréat STI2D — Mention Bien",
+    icon: "🏆",
     description:
-      "Formation au lycée avec spécialisation en Sciences et Technologies de l'Industrie et du Développement Durable",
+      "Obtention du Baccalauréat STI2D avec mention Bien au Lycée Jean Perrin (Saint-Ouen-l'Aumône).",
     achievements: [
-      "Obtention du Baccalauréat STI2D",
-      "Découverte de la programmation",
+      "Mention Bien",
+      "Spécialisation Sciences et Technologies de l'Industrie",
+      "Découverte de la programmation et de l'algorithmique",
       "Premiers projets techniques",
-      "Développement de la logique algorithmique",
     ],
     color: "#4cadad",
   },
@@ -593,33 +611,22 @@ export const timeline = [
 // FONCTIONS UTILES
 // ========================================
 
-// Obtenir l'année académique actuelle
 export const getCurrentAcademicYear = () => {
   const now = new Date();
   const year = now.getFullYear();
-  const month = now.getMonth(); // 0-11
-
-  // Si on est entre septembre (8) et décembre (11)
-  if (month >= 8) {
-    return `${year}-${year + 1}`;
-  }
+  const month = now.getMonth();
+  if (month >= 8) return `${year}-${year + 1}`;
   return `${year - 1}-${year}`;
 };
 
-// Filtrer les projets par année d'études
-export const getProjectsByYear = (year) => {
-  return projects.filter((project) => project.yearOfStudy === year);
-};
+export const getProjectsByYear = (year) =>
+  projects.filter((project) => project.yearOfStudy === year);
 
-// Obtenir les projets de l'année en cours
-export const getCurrentYearProjects = () => {
-  return getProjectsByYear(personalInfo.currentYear);
-};
+export const getCurrentYearProjects = () =>
+  getProjectsByYear(personalInfo.currentYear);
 
-// Calculer le nombre total de projets
 export const getTotalProjects = () => projects.length;
 
-// Obtenir toutes les technologies utilisées (uniques)
 export const getAllTechnologies = () => {
   const allTechs = projects.flatMap((project) => project.technologies);
   return [...new Set(allTechs)].sort();

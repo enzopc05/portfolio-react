@@ -26,18 +26,23 @@ const Hero = () => {
       <div className="hero__container">
         <div className="hero__content">
           <div className="hero__text">
+            <div className="hero__badge">
+              <span>🔍</span>
+              <span>Alternance BAC+5 — dès septembre 2026</span>
+            </div>
+
             <h1 className="hero__title">
               Bonjour, je suis <span className="hero__name">{personalInfo.name}</span>
             </h1>
             <p className="hero__subtitle">
-              {personalInfo.formation} - {personalInfo.currentYear}ème année
+              Développeur Fullstack & Chargé de projet IT
             </p>
             <p className="hero__description">
               {personalInfo.bio}
             </p>
-            
+
             <div className="hero__buttons">
-              <button 
+              <button
                 className="hero__btn hero__btn--primary"
                 onClick={() => {
                   trackEvent('cta_primary', { target: 'projets' });
@@ -47,29 +52,30 @@ const Hero = () => {
                 Voir mes projets
               </button>
               <button
-                className="hero__btn hero__btn--accent"
+                className="hero__btn hero__btn--secondary"
                 onClick={() => {
                   trackEvent('cta_secondary', { target: 'contact' });
                   scrollToSection('contact');
                 }}
                 aria-label="Travaillons ensemble - Aller à la section contact"
               >
-                Travaillons ensemble
+                Me contacter
               </button>
-              <a 
+              <a
                 href={personalInfo.cvUrl}
-                className="hero__btn hero__btn--secondary"
+                className="hero__btn hero__btn--ghost"
                 download
                 onClick={() => trackEvent('cta_download_cv')}
               >
-                Télécharger mon CV
+                ↓ Télécharger CV
               </a>
             </div>
 
             <div className="hero__social">
-              <a 
-                href={personalInfo.github} 
-                target="_blank" 
+              <span className="hero__social-label">Retrouvez-moi :</span>
+              <a
+                href={personalInfo.github}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="hero__social-link"
                 aria-label="GitHub"
@@ -113,8 +119,17 @@ const Hero = () => {
                 style={{ position: 'relative', zIndex: 2 }}
               />
               
-              {/* Décoration existante (cercle pointillé) */}
-              <div className="hero__image-decoration"></div>
+              {/* Anneau décoratif */}
+              <div className="hero__image-decoration hero__image-ring"></div>
+
+              {/* Badge flottant */}
+              <div className="hero__image-badge">
+                <span className="hero__image-badge-icon">💻</span>
+                <div className="hero__image-badge-text">
+                  Sup de Vinci
+                  <span>Bachelor Informatique</span>
+                </div>
+              </div>
 
               {/* Particules dorées pour le mode jour */}
               <div className="hero__sun-particles">
