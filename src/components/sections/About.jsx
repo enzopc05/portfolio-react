@@ -6,73 +6,83 @@ import '../../styles/components/About.css';
 const About = () => {
   const { theme } = useTheme();
 
-  // Sélection de la photo selon le thème
-  const profileImage = theme === 'light' 
-    ? '/assets/images/photo2moi.jpg' 
+  const profileImage = theme === 'light'
+    ? '/assets/images/photo2moi.jpg'
     : '/assets/images/photo2moiNuit.jpg';
 
   return (
     <section className="about" id="about">
       <div className="about__container">
+
+        {/* Header */}
+        <div className="about__section-header">
+          <span className="about__section-label">À propos</span>
+          <div className="about__section-line"></div>
+        </div>
+
         <div className="about__content">
           <div className="about__text">
-            <h2 className="about__title">À propos de moi</h2>
+            <h2 className="about__title">
+              Développeur fullstack<br />
+              <span>& futur ingénieur IT</span>
+            </h2>
+
             <p className="about__description">
-              Je m'appelle <strong>{personalInfo.name}</strong>, étudiant en{' '}
-              <strong>BTS Systèmes Informatiques aux Organisations (SLAM)</strong>.
+              Je m'appelle <strong>{personalInfo.name}</strong>, actuellement en{' '}
+              <strong>dernière année de Bachelor Développement Informatique</strong> à Sup de Vinci
+              (La Défense), en alternance chez <strong>Eurodislog</strong> en tant que Chargé de projet IT junior.
             </p>
             <p className="about__description">
-              Passionné par le <strong>développement web</strong> et la{' '}
-              <strong>gestion de projets IT</strong>, je travaille avec des technologies 
-              comme <strong>JavaScript</strong>, <strong>Python</strong>, <strong>Java</strong>, 
-              et <strong>SQL</strong>.
-            </p>
-            <p className="about__description">
-              Je vise une <strong>poursuite en Master</strong> pour évoluer vers un rôle de 
-              <strong> Chef de Projet IT</strong>, combinant expertise technique et leadership.
+              Passionné par le <strong>développement fullstack</strong>, les <strong>API</strong>{' '}
+              et l'automatisation, je travaille quotidiennement avec{' '}
+              <strong>C# / .NET</strong>, <strong>React</strong>, <strong>Node.js</strong>{' '}
+              et <strong>SQL Server</strong>.
             </p>
 
+            {/* Bannière recherche d'alternance */}
             <div className="about__objective">
-              <h3 className="about__objective-title">Mon Objectif</h3>
+              <h3 className="about__objective-title">🎯 Recherche d'alternance</h3>
               <div className="about__objective-content">
                 <p>
-                  <strong>Devenir Chef de Projet IT</strong> — Poursuivre en <strong>Master</strong> pour acquérir une vision holistique des projets IT :
+                  À la recherche d'une <strong>alternance de 24 mois à partir de septembre 2026</strong>{' '}
+                  pour un <strong>BAC+5 Expert en Ingénierie Informatique et Innovation Numérique (E3IN)</strong>{' '}
+                  à l'ESIEE-IT.
                 </p>
                 <ul className="about__objective-list">
-                  <li>Gestion de projets (Agile, Scrum, planning)</li>
-                  <li>Leadership et pilotage d'équipes</li>
-                  <li>Analyse des risques et gestion budgétaire</li>
-                  <li>Alignement stratégique métier-IT</li>
+                  <li>Rythme : 1 mois en entreprise / 1 mois en formation</li>
+                  <li>Ingénierie logicielle, DevOps, architecture des SI</li>
+                  <li>Cybersécurité, qualité logicielle et cloud</li>
+                  <li>Conduite du changement et management des SI</li>
                 </ul>
               </div>
             </div>
 
             <div className="about__stats">
               <div className="about__stat">
-                <span className="about__stat-value">{personalInfo.currentYear}</span>
-                <span className="about__stat-label">Année d'études</span>
-              </div>
-              <div className="about__stat">
-                <span className="about__stat-value">10+</span>
+                <span className="about__stat-value">14+</span>
                 <span className="about__stat-label">Projets réalisés</span>
               </div>
               <div className="about__stat">
-                <span className="about__stat-value">5+</span>
+                <span className="about__stat-value">3 ans</span>
+                <span className="about__stat-label">En alternance</span>
+              </div>
+              <div className="about__stat">
+                <span className="about__stat-value">15+</span>
                 <span className="about__stat-label">Technologies</span>
               </div>
             </div>
 
             <div className="about__actions">
-              <a 
-                href={personalInfo.cvUrl} 
+              <a
+                href={personalInfo.cvUrl}
                 className="about__btn about__btn--primary"
                 download
               >
                 <i className="fas fa-download"></i>
                 Télécharger mon CV
               </a>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="about__btn about__btn--secondary"
               >
                 <i className="fas fa-envelope"></i>
@@ -83,8 +93,8 @@ const About = () => {
 
           <div className="about__image">
             <div className="about__image-wrapper">
-              <img 
-                src={profileImage} 
+              <img
+                src={profileImage}
                 alt={personalInfo.name}
                 className="about__photo"
               />
@@ -93,32 +103,33 @@ const About = () => {
           </div>
         </div>
 
-        {/* Section des intérêts */}
+        {/* Intérêts */}
         <div className="about__interests">
-          <h3 className="about__interests-title">Mes centres d'intérêt</h3>
+          <h3 className="about__interests-title">Centres d'intérêt</h3>
           <div className="about__interests-grid">
             <div className="about__interest">
-              <div className="about__interest-icon">💻</div>
+              <span className="about__interest-icon">💻</span>
               <h4>Développement Web</h4>
-              <p>Création d'applications web modernes et responsive</p>
+              <p>Applications fullstack modernes, API et architecture logicielle</p>
             </div>
             <div className="about__interest">
-              <div className="about__interest-icon">🎯</div>
+              <span className="about__interest-icon">🎯</span>
               <h4>Gestion de projet</h4>
-              <p>Organisation et coordination d'équipes de développement</p>
+              <p>Méthodes Agile/Scrum, coordination et pilotage de projets IT</p>
             </div>
             <div className="about__interest">
-              <div className="about__interest-icon">🚀</div>
-              <h4>Nouvelles technologies</h4>
-              <p>Veille technologique et apprentissage continu</p>
+              <span className="about__interest-icon">📸</span>
+              <h4>Photographie & Musique</h4>
+              <p>Créativité visuelle, voyages et découvertes culturelles</p>
             </div>
             <div className="about__interest">
-              <div className="about__interest-icon">🎨</div>
-              <h4>UI/UX Design</h4>
-              <p>Design d'interfaces intuitives et esthétiques</p>
+              <span className="about__interest-icon">🏀</span>
+              <h4>Sport</h4>
+              <p>Basket-ball et musculation pour l'équilibre corps-esprit</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

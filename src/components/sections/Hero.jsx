@@ -27,15 +27,15 @@ const Hero = () => {
         <div className="hero__content">
           <div className="hero__text">
             <div className="hero__badge">
-              <span>🎓</span>
-              <span>{personalInfo.formation} — {personalInfo.currentYear}ème année</span>
+              <span>🔍</span>
+              <span>Alternance BAC+5 — dès septembre 2026</span>
             </div>
 
             <h1 className="hero__title">
               Bonjour, je suis <span className="hero__name">{personalInfo.name}</span>
             </h1>
             <p className="hero__subtitle">
-              Développeur Web & Logiciel
+              Développeur Fullstack & Chargé de projet IT
             </p>
             <p className="hero__description">
               {personalInfo.bio}
